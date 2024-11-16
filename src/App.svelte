@@ -7,12 +7,9 @@
   let focused = 0;
   let pageLoad = false;
 
-  onMount(() => {
-    pageLoad = true;
-  });
-
   let heroContainer: HTMLDivElement;
   onMount(() => {
+    pageLoad = true;
     const io = new IntersectionObserver(
       (enties) => {
         enties.forEach((entry) => {
@@ -27,6 +24,20 @@
     io.observe(heroContainer);
   });
 
+  let blob: HTMLDivElement;
+
+  window.onpointermove = (event) => {
+    const { clientX, clientY } = event;
+
+    blob.animate(
+      {
+        left: `${clientX}px`,
+        top: `${clientY}px`,
+      },
+      { duration: 3000, fill: "forwards" },
+    );
+  };
+
   type project = {
     url: string;
     img: string;
@@ -37,8 +48,8 @@
 
   const projects: project[] = [
     {
-      url: "http://debbol.com",
-      img: "",
+      url: "https://debbol.com",
+      img: "./debbol.png",
       name: "Debbol",
       description:
         "An Ecommerce site for ethiopian diaspora to get authentic Ethiopian Goods from their Motherland.",
@@ -53,28 +64,41 @@
     },
 
     {
-      url: "http://debolmarket.com",
-      img: "",
+      url: "https://debolmarket.com",
+      img: "./debbolmarket.png",
       name: "DebolMarket",
       description:
         "An Ecommerce site for ethiopian diaspora to buy goods fom their loved ones here in Ethiopia.",
       techs: ["NextJS", "Stripe", "Firebase", "Typescript", "Next-auth"],
     },
+    {
+      url: "https://times-rose.vercel.app/",
+      img: "./times.png",
+      name: "Time",
+      description:
+        "A simple and beautiful website for a business group to showcase their products and services.",
+      techs: ["Svelete", "TailwindCSS"],
+    },
   ];
 
   let scrollProgress = spring(0, { damping: 1, stiffness: 0.5 });
   let mainContainer: HTMLElement;
+  let parentContainer: HTMLElement;
 </script>
 
 <div
+  bind:this={parentContainer}
   on:scroll={(e) => {
     let relativeHeight = mainContainer.clientHeight - window.innerHeight;
     $scrollProgress =
       // @ts-ignore
       e.target.scrollTop / relativeHeight;
   }}
-  class="h-screen relative snap-mandatory overflow-auto snap-y tracking-wider"
+  class="h-screen text-white relative snap-mandatory overflow-auto bg-neutral-900 snap-y tracking-wider"
 >
+  <div class="fixed pointer-events-none inset-0 overflow-hidden">
+    <div bind:this={blob} id="blob"></div>
+  </div>
   <div class="fixed overflow-x-hidden h-2 top-0 left-0 right-0">
     <div
       class="bg-gradient-to-r from-red-600 via-purple-500 to-blue-200 h-0.5 rounded-full"
@@ -90,7 +114,7 @@
       ></div>
     </div>
   </div>
-  <main bind:this={mainContainer} class="text-white bg-neutral-900 px-8">
+  <main bind:this={mainContainer} class="px-8">
     <div
       class="h-screen snap-start snap-proximity flex flex-col items-center justify-center relative"
       id="hero"
@@ -118,10 +142,16 @@
           </p>
         {/if}
       </div>
-      <div
+      <button
         class={`absolute left-1/2 animate-bounce duration-300 -translate-x-1/2 bottom-8 ${
           heroScrolled < 0.8 ? "opacity-0" : ""
         }`}
+        on:click={() => {
+          parentContainer.scrollBy({
+            top: window.innerHeight,
+            behavior: "smooth",
+          });
+        }}
       >
         <svg
           width="32"
@@ -137,7 +167,7 @@
             fill="currentColor"
           ></path></svg
         >
-      </div>
+      </button>
     </div>
 
     <div
@@ -175,12 +205,43 @@
         Here is some of the things I build.
       </p>
     </div>
+  </main>
+  <div>
     <div id="projects">
       {#each projects as project}
         <Project {project} />
       {/each}
     </div>
-  </main>
+  </div>
 </div>
 
-<style></style>
+<style>
+  @keyframes rotate {
+    from {
+      rotate: 0deg;
+    }
+
+    50% {
+      scale: 1 1.5;
+    }
+
+    to {
+      rotate: 360deg;
+    }
+  }
+
+  #blob {
+    background-color: white;
+    height: 20vmax;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, aquamarine, mediumpurple);
+    animation: -global-rotate 20s infinite;
+    opacity: 0.4;
+    filter: blur(12vmax);
+  }
+</style>
