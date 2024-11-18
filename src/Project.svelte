@@ -52,14 +52,13 @@
         style="background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);"
         class="absolute inset-0 z-[2]"
       ></div>
-      <!-- <div style="opacity: {$opacity};" class="h-full"> -->
-      <img
-        style="transform: scale({$scale});"
-        class="h-full object-cover blur-lg will-change-transform"
-        src={project.img}
-        alt={project.name}
-      />
-      <!-- </div> -->
+      <div style="opacity: {$opacity};" class="h-full">
+        <img
+          class="h-full object-cover blur-lg will-change-transform"
+          src={project.img}
+          alt={project.name}
+        />
+      </div>
     </div>
   {/if}
   <div
