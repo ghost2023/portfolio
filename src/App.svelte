@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import { spring, tweened } from "svelte/motion";
   import Project from "./Project.svelte";
   import { fly } from "svelte/transition";
@@ -81,6 +81,24 @@
       techs: ["Svelte", "TailwindCSS"],
     },
   ];
+  let animationFrame: number | null = null;
+
+  const handleScroll = (
+    e: UIEvent & {
+      currentTarget: EventTarget & HTMLDivElement;
+    },
+  ) => {
+    if (animationFrame) cancelAnimationFrame(animationFrame);
+    animationFrame = requestAnimationFrame(() => {
+      let relativeHeight = parentContainer.scrollHeight - window.innerHeight;
+      // @ts-ignore
+      $scrollProgress = e.target.scrollTop / relativeHeight;
+    });
+  };
+
+  onDestroy(() => {
+    if (animationFrame) cancelAnimationFrame(animationFrame);
+  });
 
   let scrollProgress = tweened(0);
   let mainContainer: HTMLElement;
@@ -89,12 +107,7 @@
 
 <div
   bind:this={parentContainer}
-  on:scroll={(e) => {
-    let relativeHeight = parentContainer.scrollHeight - window.innerHeight;
-    $scrollProgress =
-      // @ts-ignore
-      e.target.scrollTop / relativeHeight;
-  }}
+  on:scroll={handleScroll}
   class="h-full max-h-screen text-white relative snap-mandatory overflow-auto bg-neutral-900 snap-y tracking-wider"
 >
   <div class="fixed pointer-events-none inset-0 overflow-hidden">
@@ -130,45 +143,45 @@
             Hi, My name is
           </h3>
           <div
-            class="md:text-5xl text-2xl font-semibold text-white"
+            class="sm:text-5xl text-2xl font-semibold text-white"
             transition:fly={{ y: 15, opacity: 0, duration: 1600, delay: 800 }}
           >
             Nathnael Wondisha
           </div>
           <p
-            class="text-neutral-400 text-center md:text-xl mt-3 md:mt-8"
+            class="text-neutral-400 text-center sm:text-xl mt-3 sm:mt-8"
             transition:fly={{ y: 10, opacity: 0, duration: 2000, delay: 1600 }}
           >
             I am a Software Developer.
           </p>
         {/if}
       </div>
-      <button
-        class={`absolute left-1/2 animate-bounce duration-300 -translate-x-1/2 bottom-8 ${
-          heroScrolled < 0.8 ? "opacity-0" : ""
-        }`}
-        on:click={() => {
-          parentContainer.scrollBy({
-            top: window.innerHeight,
-            behavior: "smooth",
-          });
-        }}
-      >
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon-md text-token-text-tertiary"
-          ><path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M5.29289 9.29289C5.68342 8.90237 6.31658 8.90237 6.70711 9.29289L12 14.5858L17.2929 9.29289C17.6834 8.90237 18.3166 8.90237 18.7071 9.29289C19.0976 9.68342 19.0976 10.3166 18.7071 10.7071L12.7071 16.7071C12.5196 16.8946 12.2652 17 12 17C11.7348 17 11.4804 16.8946 11.2929 16.7071L5.29289 10.7071C4.90237 10.3166 4.90237 9.68342 5.29289 9.29289Z"
-            fill="currentColor"
-          ></path></svg
+      <div class="absolute left-1/2 -translate-x-1/2 bottom-8">
+        <button
+          class={` animate-bounce duration-500 ${
+            heroScrolled < 0.8 ? "opacity-0" : ""
+          }`}
+          on:click={() => {
+            parentContainer.scrollBy({
+              top: window.innerHeight,
+              behavior: "smooth",
+            });
+          }}
         >
-      </button>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon-md size-6 sm:size-8 text-token-text-tertiary"
+            ><path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M5.29289 9.29289C5.68342 8.90237 6.31658 8.90237 6.70711 9.29289L12 14.5858L17.2929 9.29289C17.6834 8.90237 18.3166 8.90237 18.7071 9.29289C19.0976 9.68342 19.0976 10.3166 18.7071 10.7071L12.7071 16.7071C12.5196 16.8946 12.2652 17 12 17C11.7348 17 11.4804 16.8946 11.2929 16.7071L5.29289 10.7071C4.90237 10.3166 4.90237 9.68342 5.29289 9.29289Z"
+              fill="currentColor"
+            ></path></svg
+          >
+        </button>
+      </div>
     </div>
 
     <div

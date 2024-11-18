@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import { spring } from "svelte/motion";
 
   type project = {
@@ -13,19 +13,29 @@
   const opacity = spring(0, { stiffness: 0.5, damping: 1 });
   const scale = spring(0.7, { stiffness: 0.5, damping: 1 });
   let cardRef: HTMLDivElement;
+  let animationFrame: number | null = null;
 
   onMount(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        $opacity = entry.intersectionRatio;
-        $scale = 0.8 + entry.intersectionRatio * 0.4;
+        if (animationFrame) cancelAnimationFrame(animationFrame);
+        animationFrame = requestAnimationFrame(() => {
+          $opacity = entry.intersectionRatio;
+          $scale = 0.8 + entry.intersectionRatio * 0.4;
+        });
       },
-      { threshold: new Array(5).fill(0).map((_, i) => i / 5) },
+
+      { threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
 
     observer.observe(cardRef);
+    return () => {
+      observer.disconnect();
+    };
+  });
 
-    return () => observer.disconnect();
+  onDestroy(() => {
+    if (animationFrame) cancelAnimationFrame(animationFrame);
   });
 
   export let project: project;
@@ -81,7 +91,7 @@
         alt={project.name}
       />
       <div>
-        <div class="text-white text-xl sm:text-2xl font-semibold mb-2">
+        <div class="text-white text-lg sm:text-2xl font-semibold mb-2">
           {project.name}
         </div>
         <div class="text-neutral-300 text-sm sm:text-base mb-4 sm:mb-6">
