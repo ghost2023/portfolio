@@ -34,7 +34,7 @@
         left: `${clientX}px`,
         top: `${clientY}px`,
       },
-      { duration: 3000, fill: "forwards" },
+      { duration: 6000, fill: "forwards" },
     );
   };
 
@@ -74,10 +74,10 @@
     {
       url: "https://times-rose.vercel.app/",
       img: "./times.png",
-      name: "Time",
+      name: "Time business group",
       description:
         "A simple and beautiful website for a business group to showcase their products and services.",
-      techs: ["Svelete", "TailwindCSS"],
+      techs: ["Svelte", "TailwindCSS"],
     },
   ];
 
@@ -89,7 +89,7 @@
 <div
   bind:this={parentContainer}
   on:scroll={(e) => {
-    let relativeHeight = mainContainer.clientHeight - window.innerHeight;
+    let relativeHeight = parentContainer.scrollHeight - window.innerHeight;
     $scrollProgress =
       // @ts-ignore
       e.target.scrollTop / relativeHeight;
@@ -99,14 +99,14 @@
   <div class="fixed pointer-events-none inset-0 overflow-hidden">
     <div bind:this={blob} id="blob"></div>
   </div>
-  <div class="fixed overflow-x-hidden h-2 top-0 left-0 right-0">
+  <div class="z-50 fixed overflow-x-hidden h-2 top-0 left-0 right-0">
     <div
-      class="bg-gradient-to-r from-red-600 via-purple-500 to-blue-200 h-0.5 rounded-full"
+      class="bg-gradient-to-r will-change-transform from-red-600 via-purple-500 to-blue-200 h-0.5 rounded-full"
       style="transform: translateX(-{window.innerWidth -
         window.innerWidth * $scrollProgress}px)"
     ></div>
     <div
-      class="z-10 w-full -left-[100%] absolute h-[3px] top-0 overflow-hidden"
+      class="z-50 w-full will-change-transform -left-[100%] absolute h-[3px] top-0 overflow-hidden"
       style="transform: translateX({window.innerWidth * $scrollProgress}px)"
     >
       <div
@@ -129,13 +129,13 @@
             Hi, My name is
           </h3>
           <div
-            class="text-5xl font-semibold text-white"
+            class="md:text-5xl text-2xl font-semibold text-white"
             transition:fly={{ y: 15, opacity: 0, duration: 1600, delay: 800 }}
           >
             Nathnael Wondisha
           </div>
           <p
-            class="text-neutral-400 text-center text-xl mt-8"
+            class="text-neutral-400 text-center md:text-xl mt-3 md:mt-8"
             transition:fly={{ y: 10, opacity: 0, duration: 2000, delay: 1600 }}
           >
             I am a Software Developer.
@@ -241,7 +241,7 @@
     border-radius: 50%;
     background: linear-gradient(to right, aquamarine, mediumpurple);
     animation: -global-rotate 20s infinite;
-    opacity: 0.4;
+    opacity: 0.5;
     filter: blur(12vmax);
   }
 </style>
