@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onDestroy, onMount } from "svelte";
+  import { sections } from "./constants";
   import { spring } from "svelte/motion";
 
   type project = {
@@ -25,7 +26,7 @@
         });
       },
 
-      { threshold: [0, 0.25, 0.5, 0.75, 1] },
+      { threshold: sections },
     );
 
     observer.observe(cardRef);
@@ -51,12 +52,14 @@
         style="background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);"
         class="absolute inset-0 z-[2]"
       ></div>
-      <img
-        style="opacity: {$opacity}; transform: scale({$scale});"
-        class="h-full object-cover blur-lg will-change-transform"
-        src={project.img}
-        alt={project.name}
-      />
+      <div style="opacity: {$opacity};" class="h-full">
+        <img
+          style="transform: scale({$scale});"
+          class="h-full object-cover blur-lg will-change-transform"
+          src={project.img}
+          alt={project.name}
+        />
+      </div>
     </div>
   {/if}
   <div
