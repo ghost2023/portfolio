@@ -20,7 +20,7 @@
         $opacity = entry.intersectionRatio;
         $scale = 0.8 + entry.intersectionRatio * 0.4;
       },
-      { threshold: new Array(10).fill(0).map((_, i) => i / 10) },
+      { threshold: new Array(5).fill(0).map((_, i) => i / 5) },
     );
 
     observer.observe(cardRef);

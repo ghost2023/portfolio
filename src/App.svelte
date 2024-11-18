@@ -123,7 +123,7 @@
       <div>
         {#if pageLoad}
           <h3
-            class="text-neutral-400 mb-0.5 font-medium"
+            class="text-neutral-400 mb-0.5"
             transition:fly={{ y: 10, opacity: 0, duration: 1000 }}
           >
             Hi, My name is
