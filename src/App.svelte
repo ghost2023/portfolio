@@ -108,7 +108,7 @@
 <div
   bind:this={parentContainer}
   on:scroll={handleScroll}
-  class="h-full max-h-screen text-white relative snap-mandatory overflow-auto bg-neutral-900 snap-y tracking-wider"
+  class="h-dvh text-white relative snap-mandatory overflow-auto bg-neutral-900 snap-y tracking-wider"
 >
   <div class="fixed pointer-events-none inset-0 overflow-hidden">
     <div bind:this={blob} id="blob"></div>
