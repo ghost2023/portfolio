@@ -215,7 +215,7 @@
     <div
       class="h-dvh flex snap-start flex-col items-center justify-center relative"
     >
-      <p class="sm:text-base text-lg text-neutral-300 font-semibold">
+      <p class="sm:text-base text-lg text-neutral-300 font-medium text-center">
         Here is some of the things I build.
       </p>
     </div>
