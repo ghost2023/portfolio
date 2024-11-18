@@ -11,19 +11,19 @@
     techs: string[];
   };
 
-  const opacity = spring(0, { stiffness: 0.5, damping: 1 });
-  const scale = spring(0.7, { stiffness: 0.5, damping: 1 });
+  // const opacity = spring(0, { stiffness: 0.5, damping: 1 });
+  // const scale = spring(0.7, { stiffness: 0.5, damping: 1 });
   let cardRef: HTMLDivElement;
   let animationFrame: number | null = null;
 
   onMount(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (animationFrame) cancelAnimationFrame(animationFrame);
-        animationFrame = requestAnimationFrame(() => {
-          $opacity = entry.intersectionRatio;
-          $scale = 0.8 + entry.intersectionRatio * 0.4;
-        });
+        // if (animationFrame) cancelAnimationFrame(animationFrame);
+        // animationFrame = requestAnimationFrame(() => {
+        //   // $opacity = entry.intersectionRatio;
+        //   // $scale = 0.8 + entry.intersectionRatio * 0.4;
+        // });
       },
 
       { threshold: sections },
@@ -99,8 +99,8 @@
         <div class="text-neutral-300 text-sm sm:text-base mb-4 sm:mb-6">
           {project.description}
         </div>
-        <div class="text-neutral-300 text-sm">Tech I have used:</div>
-        <div class="text-white text-sm font-medium">
+        <div class="text-neutral-300 text-xs sm:text-sm">Tech I have used:</div>
+        <div class="text-white text-xs sm:text-sm font-medium">
           {project.techs.join(", ")}
         </div>
       </div>
