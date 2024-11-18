@@ -33,10 +33,10 @@
 
 <div
   bind:this={cardRef}
-  class="h-screen flex snap-start flex-col overflow-hidden items-center justify-center relative"
+  class="h-dvh flex snap-start flex-col overflow-hidden items-center justify-center relative"
 >
   {#if project.img}
-    <div class="h-sreen absolute inset-0">
+    <div class="absolute inset-0">
       <div
         style="background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);"
         class="absolute inset-0 z-[2]"
@@ -84,7 +84,7 @@
         <div class="text-white text-xl sm:text-2xl font-semibold mb-2">
           {project.name}
         </div>
-        <div class="text-neutral-300 mb-8">
+        <div class="text-neutral-300 text-sm sm:text-base mb-8">
           {project.description}
         </div>
         <div class="text-neutral-300 text-sm">Tech I have used:</div>

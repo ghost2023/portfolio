@@ -94,7 +94,7 @@
       // @ts-ignore
       e.target.scrollTop / relativeHeight;
   }}
-  class="h-screen text-white relative snap-mandatory overflow-auto bg-neutral-900 snap-y tracking-wider"
+  class="h-full max-h-screen text-white relative snap-mandatory overflow-auto bg-neutral-900 snap-y tracking-wider"
 >
   <div class="fixed pointer-events-none inset-0 overflow-hidden">
     <div bind:this={blob} id="blob"></div>
@@ -116,14 +116,14 @@
   </div>
   <main bind:this={mainContainer} class="px-8">
     <div
-      class="h-screen snap-start snap-proximity flex flex-col items-center justify-center relative"
+      class="h-dvh snap-start snap-proximity flex flex-col items-center justify-center relative"
       id="hero"
       bind:this={heroContainer}
     >
       <div>
         {#if pageLoad}
           <h3
-            class="text-neutral-400 font-medium"
+            class="text-neutral-400 mb-0.5 font-medium"
             transition:fly={{ y: 10, opacity: 0, duration: 1000 }}
           >
             Hi, My name is
@@ -171,9 +171,9 @@
     </div>
 
     <div
-      class="h-screen flex snap-start flex-col items-center justify-center relative"
+      class="h-dvh flex snap-start flex-col items-center justify-center relative"
     >
-      <p class="text-lg text-neutral-400 max-w-lg leading-relaxed">
+      <p class="text-base sm:text-lg text-neutral-400 max-w-lg leading-relaxed">
         <span class="text-white font-medium">
           Welcome to my digital workspace.</span
         > <br /><br />As a passionate developer, I enjoy build scalable and
@@ -184,9 +184,9 @@
       </p>
     </div>
     <div
-      class="h-screen flex snap-start flex-col items-center justify-center relative"
+      class="h-dvh flex snap-start flex-col items-center justify-center relative"
     >
-      <p class="text-lg text-neutral-400 max-w-lg leading-relaxed">
+      <p class="text-base sm:text-lg text-neutral-400 max-w-lg leading-relaxed">
         <span class="text-white font-medium"
           >This portfolio isn't just a collection of projects</span
         ><br /> <br /> it's a reflection of my problem-solving mindset and
@@ -199,9 +199,9 @@
     </div>
 
     <div
-      class="h-screen flex snap-start flex-col items-center justify-center relative"
+      class="h-dvh flex snap-start flex-col items-center justify-center relative"
     >
-      <p class="text-lg text-neutral-300 font-semibold">
+      <p class="sm:text-base text-lg text-neutral-300 font-semibold">
         Here is some of the things I build.
       </p>
     </div>
