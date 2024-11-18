@@ -19,11 +19,11 @@
   onMount(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // if (animationFrame) cancelAnimationFrame(animationFrame);
-        // animationFrame = requestAnimationFrame(() => {
-        //   // $opacity = entry.intersectionRatio;
-        //   // $scale = 0.8 + entry.intersectionRatio * 0.4;
-        // });
+        if (animationFrame) cancelAnimationFrame(animationFrame);
+        animationFrame = requestAnimationFrame(() => {
+          // $opacity = entry.intersectionRatio;
+          // $scale = 0.8 + entry.intersectionRatio * 0.4;
+        });
       },
 
       { threshold: sections },
@@ -52,7 +52,7 @@
         style="background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);"
         class="absolute inset-0 z-[2]"
       ></div>
-      <div style="opacity: {$opacity};" class="h-full">
+      <div class="h-full">
         <img
           class="h-full object-cover blur-lg will-change-transform"
           src={project.img}
