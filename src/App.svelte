@@ -1,8 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { spring } from "svelte/motion";
+  import { spring, tweened } from "svelte/motion";
   import Project from "./Project.svelte";
   import { fly } from "svelte/transition";
+
   let heroScrolled = 0;
   let focused = 0;
   let pageLoad = false;
@@ -81,7 +82,7 @@
     },
   ];
 
-  let scrollProgress = spring(0, { damping: 1, stiffness: 0.5 });
+  let scrollProgress = tweened(0);
   let mainContainer: HTMLElement;
   let parentContainer: HTMLElement;
 </script>
