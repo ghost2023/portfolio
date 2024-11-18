@@ -20,7 +20,7 @@
         $opacity = entry.intersectionRatio;
         $scale = 0.8 + entry.intersectionRatio * 0.4;
       },
-      { threshold: new Array(40).fill(0).map((_, i) => i / 40) },
+      { threshold: new Array(10).fill(0).map((_, i) => i / 10) },
     );
 
     observer.observe(cardRef);
@@ -76,7 +76,7 @@
     </a>
     <div class="top-0 left-0 w-full h-full flex flex-col justify-center">
       <img
-        class="h-56 object-cover mb-8 rounded-lg"
+        class="h-56 object-cover mb-6 sm:mb-8 rounded-lg"
         src={project.img}
         alt={project.name}
       />
@@ -84,7 +84,7 @@
         <div class="text-white text-xl sm:text-2xl font-semibold mb-2">
           {project.name}
         </div>
-        <div class="text-neutral-300 text-sm sm:text-base mb-8">
+        <div class="text-neutral-300 text-sm sm:text-base mb-4 sm:mb-6">
           {project.description}
         </div>
         <div class="text-neutral-300 text-sm">Tech I have used:</div>
