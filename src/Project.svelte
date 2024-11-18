@@ -29,7 +29,7 @@
       { threshold: sections },
     );
 
-    observer.observe(cardRef);
+    // observer.observe(cardRef);
     return () => {
       observer.disconnect();
     };
