@@ -10,6 +10,18 @@
 
   let heroContainer: HTMLDivElement;
   onMount(() => {
+    window.onpointermove = (event: PointerEvent) => {
+      const { clientX, clientY } = event;
+
+      blob.animate(
+        {
+          left: `${clientX}px`,
+          top: `${clientY}px`,
+        },
+        { duration: 5000, fill: "forwards" },
+      );
+    };
+
     pageLoad = true;
     const io = new IntersectionObserver(
       (enties) => {
@@ -26,18 +38,6 @@
   });
 
   let blob: HTMLDivElement;
-
-  window.onpointermove = (event) => {
-    const { clientX, clientY } = event;
-
-    blob.animate(
-      {
-        left: `${clientX}px`,
-        top: `${clientY}px`,
-      },
-      { duration: 6000, fill: "forwards" },
-    );
-  };
 
   type project = {
     url: string;
@@ -73,7 +73,7 @@
       techs: ["NextJS", "Stripe", "Firebase", "Typescript", "Next-auth"],
     },
     {
-      url: "https://times-rose.vercel.app/",
+      url: "https://times-rosy.vercel.app/",
       img: "./times.png",
       name: "Time business group",
       description:
