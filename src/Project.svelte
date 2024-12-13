@@ -62,12 +62,12 @@
     </div>
   {/if}
   <div
-    class="max-w-lg relative z-10 rounded-xl backdrop-blur-2xl mx-6 bg-neutral-900/70 px-6 sm:px-8 py-8 md:py-10 border border-slate-600"
+    class="max-w-lg relative z-10 rounded-2xl backdrop-blur-2xl mx-4 sm:mx-6 bg-neutral-900/70 p-4 sm:p-6 md:p-8 border border-slate-600"
   >
     <a
       href={project.url}
       target="_blank"
-      class="absolute p-2 duration-500 hover:text-black easing-[cubic-bezier(0.25,1,0.5,1)] group top-0 bg-neutral-950 rounded-full transition-all hover:bg-white right-0 translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center"
+      class="absolute p-2 hover:text-black easing-[cubic-bezier(0.25,1,0.5,1)] group top-0 bg-neutral-950 rounded-full transition-all hover:bg-white right-0 translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center"
       rel="noopener noreferrer"
     >
       <div class="rotate-45">
@@ -99,8 +99,8 @@
         <div class="text-neutral-300 text-sm sm:text-base mb-4 sm:mb-6">
           {project.description}
         </div>
-        <div class="text-neutral-300 text-xs sm:text-sm">Tech I have used:</div>
-        <div class="text-white text-xs sm:text-sm font-medium">
+        <div class="text-neutral-300 text-sm">Tech I have used:</div>
+        <div class="text-white text-sm font-medium">
           {project.techs.join(", ")}
         </div>
       </div>
