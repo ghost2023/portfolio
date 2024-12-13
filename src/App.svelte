@@ -3,6 +3,7 @@
   import { spring, tweened } from "svelte/motion";
   import Project from "./Project.svelte";
   import { fly } from "svelte/transition";
+  import Contacts from "./Contacts.svelte";
 
   let heroScrolled = 0;
   let focused = 0;
@@ -105,6 +106,7 @@
   let parentContainer: HTMLElement;
 </script>
 
+<Contacts />
 <div
   bind:this={parentContainer}
   on:scroll={handleScroll}
