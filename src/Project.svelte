@@ -11,25 +11,26 @@
     techs: string[];
   };
 
-  // const opacity = spring(0, { stiffness: 0.5, damping: 1 });
-  // const scale = spring(0.7, { stiffness: 0.5, damping: 1 });
   let cardRef: HTMLDivElement;
   let animationFrame: number | null = null;
+
+  let opacity = spring(0, { stiffness: 0.5, damping: 1 });
+  let isVisible = false;
 
   onMount(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (animationFrame) cancelAnimationFrame(animationFrame);
         animationFrame = requestAnimationFrame(() => {
-          // $opacity = entry.intersectionRatio;
-          // $scale = 0.8 + entry.intersectionRatio * 0.4;
+          isVisible = entry.isIntersecting;
+          $opacity = entry.intersectionRatio;
         });
       },
 
       { threshold: sections },
     );
 
-    // observer.observe(cardRef);
+    observer.observe(cardRef);
     return () => {
       observer.disconnect();
     };
@@ -45,25 +46,20 @@
 <div
   bind:this={cardRef}
   class="h-dvh flex snap-start flex-col overflow-hidden items-center justify-center relative"
+  style="opacity: {$opacity};"
 >
-  {#if project.img}
-    <div class="absolute inset-0">
-      <div
-        style="background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);"
-        class="absolute inset-0 z-[2]"
-      ></div>
-      <div class="h-full">
-        <img
-          class="h-full object-cover blur-lg will-change-transform"
-          src={project.img}
-          alt={project.name}
-        />
-      </div>
-    </div>
-  {/if}
   <div
-    class="max-w-lg relative z-10 rounded-2xl backdrop-blur-2xl mx-4 sm:mx-6 bg-neutral-900/70 p-4 sm:p-6 md:p-8 border border-slate-600"
+    class="max-w-lg relative z-10 rounded-2xl backdrop-blur-2xl mx-4 sm:mx-6 p-4 sm:p-6 md:p-8 border bg-neutral-900 border-gray-600/30"
   >
+    <div
+      class="absolute group inset-0 rounded-2xl overflow-hidden flex items-center justify-center"
+    >
+      <div
+        class="absolute border-[8px] {$opacity > 0.5
+          ? 'size-[80%]'
+          : 'size-0'} transition-all delay-300 ease-out duration-300 rounded-full border-transparent bg-white/10 blur-[100px]"
+      ></div>
+    </div>
     <a
       href={project.url}
       target="_blank"
@@ -86,7 +82,9 @@
         </div>
       </div>
     </a>
-    <div class="top-0 left-0 w-full h-full flex flex-col justify-center">
+    <div
+      class="top-0 left-0 w-full h-full flex flex-col justify-center overflow-hidden"
+    >
       <img
         class="h-56 object-cover mb-6 sm:mb-8 rounded-lg"
         src={project.img}

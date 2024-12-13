@@ -19,7 +19,7 @@
           left: `${clientX}px`,
           top: `${clientY}px`,
         },
-        { duration: 5000, fill: "forwards" },
+        { duration: 8000, fill: "forwards" },
       );
     };
 
@@ -110,7 +110,7 @@
 <div
   bind:this={parentContainer}
   on:scroll={handleScroll}
-  class="h-dvh text-white relative snap-mandatory overflow-auto bg-neutral-900 snap-y tracking-wider"
+  class="h-dvh text-white relative snap-mandatory overflow-auto bg-neutral-950 snap-y tracking-wider"
 >
   <div class="fixed pointer-events-none inset-0 overflow-hidden">
     <div bind:this={blob} id="blob"></div>
@@ -233,31 +233,32 @@
 
 <style>
   @keyframes rotate {
-    from {
+    0% {
       rotate: 0deg;
     }
 
     50% {
-      scale: 1 1.5;
+      scale: 1 1.02;
     }
 
-    to {
+    100% {
+      scale: 1 1.01;
       rotate: 360deg;
     }
   }
 
   #blob {
-    background-color: white;
-    height: 20vmax;
+    height: 16vmax;
     aspect-ratio: 1;
     position: absolute;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
     border-radius: 50%;
-    background: linear-gradient(to right, aquamarine, mediumpurple);
-    animation: -global-rotate 20s infinite;
-    opacity: 0.5;
+    background: linear-gradient(lightblue, mediumpurple, gray);
+    animation: rotate 700ms infinite;
+
+    opacity: 0.6;
     filter: blur(12vmax);
   }
 </style>
