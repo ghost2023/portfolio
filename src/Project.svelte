@@ -49,7 +49,7 @@
   style="opacity: {$opacity};"
 >
   <div
-    class="max-w-lg relative z-10 rounded-2xl backdrop-blur-2xl mx-4 sm:mx-6 p-4 sm:p-6 md:p-8 border bg-neutral-900 border-gray-600/30"
+    class="max-w-xl relative z-10 rounded-2xl backdrop-blur-2xl mx-4 sm:mx-6 p-4 border bg-neutral-900 border-gray-600/30"
   >
     <div
       class="absolute group inset-0 rounded-2xl overflow-hidden flex items-center justify-center"
@@ -63,7 +63,7 @@
     <a
       href={project.url}
       target="_blank"
-      class="absolute p-2 hover:text-black easing-[cubic-bezier(0.25,1,0.5,1)] group top-0 bg-neutral-950 rounded-full transition-all hover:bg-white right-0 translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center"
+      class="absolute p-2 hover:text-black ease-in-out group top-0 bg-neutral-950 rounded-full transition-all hover:bg-white right-0 translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center"
       rel="noopener noreferrer"
     >
       <div class="rotate-45">
@@ -86,7 +86,7 @@
       class="top-0 left-0 w-full h-full flex flex-col justify-center overflow-hidden"
     >
       <img
-        class="h-56 object-cover mb-6 sm:mb-8 rounded-lg"
+        class="aspect-video object-cover mb-6 sm:mb-8 rounded-lg"
         src={project.img}
         alt={project.name}
       />
@@ -97,10 +97,12 @@
         <div class="text-neutral-300 text-sm sm:text-base mb-4 sm:mb-6">
           {project.description}
         </div>
+        {#if project.techs && project.techs.length > 0}
         <div class="text-neutral-300 text-sm">Tech I have used:</div>
         <div class="text-white text-sm font-medium">
           {project.techs.join(", ")}
         </div>
+{/if}
       </div>
     </div>
   </div>

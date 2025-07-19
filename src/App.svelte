@@ -50,6 +50,14 @@
 
   const projects: project[] = [
     {
+      url: "https://algrab.com",
+      img: "./algrab.png",
+      name: "Algrab",
+      description:
+        "A Classified Ads website for ethiopian with advanced search and filtering options.",
+      techs: [],
+    },
+    {
       url: "https://debbol.com",
       img: "./debbol.png",
       name: "Debbol",
@@ -110,7 +118,7 @@
 <div
   bind:this={parentContainer}
   on:scroll={handleScroll}
-  class="h-dvh text-white relative snap-mandatory overflow-auto bg-neutral-950 snap-y tracking-wider"
+  class="h-dvh text-white relative snap-proximity overflow-auto bg-neutral-950 snap-y tracking-wider"
 >
   <div class="fixed pointer-events-none inset-0 overflow-hidden">
     <div bind:this={blob} id="blob"></div>
@@ -239,16 +247,16 @@
 
     50% {
       scale: 1 1.02;
+    rotate: 180deg;
     }
 
     100% {
       scale: 1 1.01;
-      rotate: 360deg;
     }
   }
 
   #blob {
-    height: 16vmax;
+    height: 20vmax;
     aspect-ratio: 1;
     position: absolute;
     left: 50%;
@@ -256,9 +264,9 @@
     translate: -50% -50%;
     border-radius: 50%;
     background: linear-gradient(lightblue, mediumpurple, gray);
-    animation: rotate 700ms infinite;
+    animation: rotate 1700ms infinite;
 
-    opacity: 0.6;
-    filter: blur(12vmax);
+    opacity: 0.2;
+    filter: blur(20vmax);
   }
 </style>
