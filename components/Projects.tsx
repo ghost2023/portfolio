@@ -69,7 +69,7 @@ const Projects: React.FC = () => {
               onClick={() => setSelectedId(project.id)}
               className={`group relative cursor-pointer rounded-xl overflow-hidden bg-surface border border-white/5 hover:border-white/20 transition-all duration-700 ${
                 /* Make the second item span 2 columns if on large screen for variety */
-                index === 1 ? "lg:col-span-2" : ""
+                index === 1 || index === 2 ? "lg:col-span-2" : ""
                 }`}
             >
               {/* Image Container with Artistic Filters */}
@@ -81,7 +81,7 @@ const Projects: React.FC = () => {
                 <img
                   src={project.imageUrl}
                   alt={project.title}
-                  className="w-full h-full object-cover transform scale-100 group-hover:scale-105 group-hover:rotate-1 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover transform scale-100 group-hover:scale-105 blur-[2px] group-hover:blur-0 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0"
                 />
 
                 {/* Hover Reveal Details */}
@@ -96,18 +96,18 @@ const Projects: React.FC = () => {
               </div>
 
               {/* Minimal Info Footer */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/90 via-60% to-transparent z-20">
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/70 to-transparent group-hover:via-black/80 z-20">
                 <div className="flex justify-between items-end translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                   <div>
-                    <div className="flex items-center gap-2 mb-3 text-primary text-xs font-mono uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <div className="flex items-center gap-2 mb-3 text-primary text-xs font-mono font-medium uppercase tracking-widest opacity-0  group-hover:opacity-100 transition-opacity duration-500 delay-100">
                       {project.type === "mobile" ? (
-                        <Smartphone className="w-3 h-3" />
+                        <Smartphone className="size-3.5" />
                       ) : (
-                        <Monitor className="w-3 h-3" />
+                        <Monitor className="size-3.5" />
                       )}
                       {project.type}
                     </div>
-                    <h3 className="text-3xl font-bold text-zinc-300 group-hover:text-white transition-colors">
+                    <h3 className="text-2xl font-bold text-zinc-300 group-hover:text-white transition-colors">
                       {project.title}
                     </h3>
                   </div>

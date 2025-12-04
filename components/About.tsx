@@ -29,13 +29,13 @@ const About: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-6 bg-white/5 rounded-2xl border border-white/5">
-                  <h3 className="text-3xl font-bold text-white mb-1">8+</h3>
+                  <h3 className="text-3xl font-bold text-white mb-1">5+</h3>
                   <p className="text-gray-500 font-mono text-sm">
                     Years of Experience
                   </p>
                 </div>
                 <div className="p-6 bg-white/5 rounded-2xl border border-white/5">
-                  <h3 className="text-3xl font-bold text-white mb-1">50+</h3>
+                  <h3 className="text-3xl font-bold text-white mb-1">9+</h3>
                   <p className="text-gray-500 font-mono text-sm">
                     Projects Deployed
                   </p>
@@ -58,16 +58,6 @@ const About: React.FC = () => {
                     {skill.name}
                   </span>
                 ))}
-                {/* Extra hardcoded for effect */}
-                <span className="px-4 py-2 rounded-lg text-sm font-mono bg-black border border-white/10 text-gray-300 hover:border-primary/50 hover:text-primary transition-all">
-                  GraphQL
-                </span>
-                <span className="px-4 py-2 rounded-lg text-sm font-mono bg-black border border-white/10 text-gray-300 hover:border-primary/50 hover:text-primary transition-all">
-                  AWS
-                </span>
-                <span className="px-4 py-2 rounded-lg text-sm font-mono bg-black border border-white/10 text-gray-300 hover:border-primary/50 hover:text-primary transition-all">
-                  Docker
-                </span>
               </div>
             </div>
           </div>

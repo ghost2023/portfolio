@@ -49,8 +49,9 @@ const Hero: React.FC = () => {
             </div>
 
             <p className="max-w-xl text-gray-400 text-lg leading-relaxed border-l-2 border-white/10 pl-6">
-              Senior Creative Developer specializing in performant web
-              applications and immersive interfaces. blending code and art.
+              Senior Creative Developer specializing in performant web and
+              mobile applications and immersive interfaces. blending code and
+              art.
             </p>
 
             <div className="flex items-center gap-6 pt-4">
@@ -84,7 +85,14 @@ const Hero: React.FC = () => {
             className="hidden lg:block animate-fade-in"
             style={{ animationDelay: "0.2s" }}
           >
-            <div className="glass-panel rounded-xl p-8 max-w-md ml-auto transform rotate-1 hover:rotate-0 transition-transform duration-500">
+            <div
+              style={{
+                boxShadow: `inset 1px 1px 2px 0 rgba(255, 255, 255, 0.10),
+          inset -1px -1px 1px 0px rgba(255, 255, 255, 0.1),
+          0 2px 2px 0 rgba(255, 255, 255, 0.1)`,
+              }}
+              className="glass-panel rounded-xl p-8 max-w-md ml-auto transform rotate-1 bg-zinc-950/10 backdrop-blur-md group transition-transform duration-500"
+            >
               <div className="flex items-center gap-2 mb-6 border-b border-white/5 pb-4">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>

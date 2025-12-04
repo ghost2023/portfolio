@@ -7,7 +7,7 @@ export interface Project {
   imageUrl: string;
   demoUrl?: string;
   githubUrl?: string;
-  type: "web" | "mobile";
+  type: "web" | "mobile" | "other";
   role?: string;
   year?: string;
   gallery?: string[];
@@ -15,7 +15,6 @@ export interface Project {
 
 export interface Skill {
   name: string;
-  level: number; // 0-100
   category: "frontend" | "backend" | "tools" | "soft";
 }
 
