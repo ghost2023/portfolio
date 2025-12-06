@@ -1,4 +1,4 @@
-import { Github, Linkedin, File } from "lucide-react";
+import { Github, Linkedin, LucideMail, File } from "lucide-react";
 import { Project, Skill, Experience } from "./types";
 import Telegram from "./icons/Telegram";
 
@@ -26,25 +26,25 @@ export const SKILLS: Skill[] = [
 
 export const EXPERIENCE: Experience[] = [
   {
-    role: "Senior Frontend Engineer",
-    company: "TechNova Solutions",
-    period: "2021 - Present",
-    description:
-      "Leading the frontend migration to React 18 and Next.js. Improved core web vitals by 40%.",
+    role: "Senior Engineer",
+    company: "Efoyy Transport Solutions",
+    period: "2025 - Present",
+    description: "",
   },
   {
-    role: "Frontend Developer",
-    company: "Creative Pulse Agency",
-    period: "2018 - 2021",
+    role: "Lead Developer",
+    company:
+      "American Institute for Certification Technology Incorporated(AICTI)",
+    period: "2023",
     description:
-      "Developed award-winning marketing sites for Fortune 500 clients using WebGL and GSAP.",
+      "Built a full-stack web application for managing 3000+ students.",
   },
   {
-    role: "Full Stack Developer",
-    company: "StartUp Inc.",
-    period: "2016 - 2018",
+    role: "CTO & Founder",
+    company: "Debol LLC",
+    period: "2022",
     description:
-      "Built the MVP for a fintech platform serving 10k+ daily users.",
+      "Building A large ecommerce platform start up as solo developer",
   },
 ];
 
@@ -207,6 +207,10 @@ Keep responses under 3 sentences unless asked for details.
 `;
 
 export const contacts = [
+  {
+    url: "mailto:nathnaelwonisha@gmail.com",
+    icon: LucideMail,
+  },
   {
     url: "https://github.com/ghost2023",
     icon: Github,
