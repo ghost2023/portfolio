@@ -1,4 +1,6 @@
+import { Github, Linkedin, File } from "lucide-react";
 import { Project, Skill, Experience } from "./types";
+import Telegram from "./icons/Telegram";
 
 export const DEV_NAME = "Nathnael Wondisha";
 export const DEV_TITLE = "Senior Creative Developer";
@@ -54,13 +56,19 @@ export const PROJECTS: Project[] = [
     longDescription:
       "Users can post ads, search listings, manage profiles, and handle communication. Includes a full admin dashboard with customer management and moderation tools.",
     technologies: ["Next.js", "Firebase", "Redis", "TypeScript", "React"],
-    imageUrl: "./algrab.png",
+    imageUrl: "/algrab.png",
     demoUrl: "https://algrab.com",
     githubUrl: "",
     type: "web",
     role: "Solo-dev",
     year: "2023",
-    gallery: [],
+    gallery: [
+      "/algrab.png",
+      "/algrab-1.png",
+      "/algrab-2.png",
+      "/algrab-3.png",
+      "/algrab-4.png",
+    ],
   },
   {
     id: 2,
@@ -69,13 +77,17 @@ export const PROJECTS: Project[] = [
     longDescription:
       "Includes ordering, payment validation, staff and role management, inventory/portioning, analytics, and accounting. Backend built with a custom vanilla Next.js setup.",
     technologies: ["Next.js", "Postgres", "TypeScript", "React", "Node.js"],
-    imageUrl: "/images/restaurant-erp.png",
-    demoUrl: "",
-    githubUrl: "",
+    imageUrl: "/erp-1.png",
     type: "web",
     role: "Solo-dev",
     year: "2023",
-    gallery: [],
+    gallery: [
+      "/erp-1.png",
+      "/erp-2.png",
+      "/erp-3.png",
+      "/erp-4.png",
+      "/erp-5.png",
+    ],
   },
   {
     id: 3,
@@ -97,7 +109,7 @@ export const PROJECTS: Project[] = [
     type: "web",
     role: "Solo-dev",
     year: "2023",
-    gallery: [],
+    gallery: ["/debbol.png"],
   },
   {
     id: 4,
@@ -121,11 +133,11 @@ export const PROJECTS: Project[] = [
     longDescription:
       "Built for internal business use with dashboards, verification flows, and audit logs.",
     technologies: ["Next.js", "Postgres", "TypeScript"],
-    imageUrl: "/images/payment-system.png",
+    imageUrl: "/payment.png",
     type: "web",
     role: "Solo-dev",
     year: "2022",
-    gallery: [],
+    gallery: ["/payment.png", "/payment-1.png"],
   },
 
   {
@@ -149,13 +161,13 @@ export const PROJECTS: Project[] = [
     longDescription:
       "Handles student registration, course assignment, progress tracking, and material sharing.",
     technologies: ["Next.js", "Node.js", "Postgres", "TypeScript"],
-    imageUrl: "/images/aicti.png",
+    imageUrl: "/aicti.png",
     demoUrl: "https://aicti.net",
     githubUrl: "",
     type: "web",
     role: "Solo-dev",
     year: "2022",
-    gallery: [],
+    gallery: ["/aicti.png"],
   },
   // {
   //   id: 8,
@@ -193,3 +205,24 @@ If asked about contact info, suggest they scroll to the contact section or email
 Do not hallucinate projects or skills not listed here.
 Keep responses under 3 sentences unless asked for details.
 `;
+
+export const contacts = [
+  {
+    url: "https://github.com/ghost2023",
+    icon: Github,
+  },
+  {
+    url: "https://t.me/AsinisterH",
+    icon: Telegram,
+  },
+  {
+    url: "www.linkedin.com/in/nathnael-wondisha-67b048227",
+    icon: Linkedin,
+  },
+
+  {
+    url: "/updated-resume.pdf",
+    icon: File,
+    label: "Resume",
+  },
+];
