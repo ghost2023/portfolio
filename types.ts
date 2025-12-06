@@ -11,6 +11,7 @@ export interface Project {
   role?: string;
   year?: string;
   gallery?: string[];
+  timeline?: string;
 }
 
 export interface Skill {

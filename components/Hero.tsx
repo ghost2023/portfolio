@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  ArrowRight,
-  Github,
-  Linkedin,
-  Mail,
-  ChevronRight,
-  Hash,
-} from "lucide-react";
-import { DEV_NAME, DEV_TITLE } from "../constants";
+import { ArrowRight } from "lucide-react";
+import { contacts } from "../constants";
 
 const Hero: React.FC = () => {
   return (
@@ -64,18 +57,20 @@ const Hero: React.FC = () => {
               </a>
 
               <div className="flex items-center gap-4">
-                <a
-                  href="#"
-                  className="p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  className="p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
+                {contacts
+                  .filter(
+                    (c) =>
+                      c.url.includes("github") || c.url.includes("linkedin"),
+                  )
+                  .map((contact) => (
+                    <a
+                      key={contact.url}
+                      href={contact.url}
+                      className="p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all"
+                    >
+                      <contact.icon className="w-5 h-5" />
+                    </a>
+                  ))}
               </div>
             </div>
           </div>

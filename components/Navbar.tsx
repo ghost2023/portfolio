@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Terminal } from "lucide-react";
+import { DEV_NAME } from "../constants";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +22,11 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-full z-40 transition-all duration-500 ${scrolled
+      className={`fixed w-full z-40 transition-all duration-500 ${
+        scrolled
           ? "bg-background/80 backdrop-blur-md border-b border-white/5 py-4"
           : "bg-transparent py-6"
-        }`}
+      }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -36,7 +38,8 @@ const Navbar: React.FC = () => {
               <Terminal className="w-5 h-5 text-gray-300 group-hover:text-primary transition-colors" />
             </div>
             <span className="font-mono font-bold text-lg tracking-tight text-white group-hover:text-primary transition-colors">
-              Nathnael<span className="text-muted">_Wondisha</span>
+              {DEV_NAME.split(" ")[0]}
+              <span className="text-muted">_{DEV_NAME.split(" ")[1]}</span>
             </span>
           </div>
 

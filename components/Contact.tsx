@@ -1,6 +1,6 @@
 import React from "react";
-import { Mail, MapPin, ArrowRight } from "lucide-react";
-import { DEV_NAME } from "../constants";
+import { Mail, MapPin, ArrowRight, File } from "lucide-react";
+import { DEV_NAME, contacts } from "../constants";
 
 const Contact: React.FC = () => {
   return (
@@ -21,61 +21,49 @@ const Contact: React.FC = () => {
             question or just want to say hi, I'll try my best to get back to
             you!
           </p>
-          <a
-            href="mailto:hello@example.com"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white hover:bg-white/10 hover:border-primary/50 transition-all"
-          >
-            <Mail className="w-5 h-5 text-primary" />
-            <span className="font-mono">Say Hello</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href={contacts.find((c) => c.icon === Mail)?.url}
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white hover:bg-white/10 hover:border-primary/50 transition-all"
+            >
+              <Mail className="w-5 h-5 text-primary" />
+              <span className="font-mono">Say Hello</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href={contacts.find((c) => c.label === "Resume")?.url}
+              download
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white hover:bg-white/10 hover:border-primary/50 transition-all"
+            >
+              <File className="w-5 h-5 text-primary" />
+              <span className="font-mono">Download Resume</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-y border-white/5">
-          <div>
-            <h4 className="text-white font-bold mb-4">Navigation</h4>
-            <ul className="space-y-2 text-gray-500 text-sm">
-              <li>
-                <a
-                  href="#about"
-                  className="hover:text-primary transition-colors"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#projects"
-                  className="hover:text-primary transition-colors"
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-bold mb-4">Socials</h4>
-            <ul className="space-y-2 text-gray-500 text-sm">
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Twitter
-                </a>
-              </li>
+          <div className="flex items-center gap-6">
+            <h4 className="text-white font-bold  text-base ">Socials</h4>
+            <ul className="text-gray-500 flex items-center gap-4 text-sm">
+              {contacts
+                .filter((c) => c.label !== "Resume" && c.icon !== Mail)
+                .map((contact) => (
+                  <li key={contact.url}>
+                    <a
+                      href={contact.url}
+                      className="hover:text-primary transition-colors"
+                    >
+                      {contact.url.includes("github")
+                        ? "GitHub"
+                        : contact.url.includes("linkedin")
+                          ? "LinkedIn"
+                          : contact.url.includes("t.me")
+                            ? "Telegram"
+                            : "Social"}
+                    </a>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>

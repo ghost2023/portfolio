@@ -242,7 +242,7 @@ const Projects: React.FC = () => {
                       <Calendar className="w-4 h-4" /> TIMELINE
                     </div>
                     <div className="text-white font-medium text-lg">
-                      3 Months
+                      {activeProject.timeline}
                     </div>
                   </div>
                 </div>
@@ -275,24 +275,28 @@ const Projects: React.FC = () => {
                 </div>
 
                 <div className="flex gap-4 pt-8">
-                  <a
-                    href={activeProject.demoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex-1 bg-white text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
-                  >
-                    <span>Live Demo</span>
-                    <ArrowUpRight className="w-5 h-5" />
-                  </a>
-                  <a
-                    href={activeProject.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex-1 bg-black border border-white/10 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-white/5 hover:border-white/30 transition-all"
-                  >
-                    <Github className="w-5 h-5" />
-                    <span>Source</span>
-                  </a>
+                  {activeProject.demoUrl && (
+                    <a
+                      href={activeProject.demoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 bg-white text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
+                    >
+                      <span>Live Site</span>
+                      <ArrowUpRight className="w-5 h-5" />
+                    </a>
+                  )}
+                  {activeProject.githubUrl && (
+                    <a
+                      href={activeProject.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 bg-black border border-white/10 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-white/5 hover:border-white/30 transition-all"
+                    >
+                      <Github className="w-5 h-5" />
+                      <span>Source</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

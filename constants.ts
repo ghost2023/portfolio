@@ -35,7 +35,7 @@ export const EXPERIENCE: Experience[] = [
     role: "Lead Developer",
     company:
       "American Institute for Certification Technology Incorporated(AICTI)",
-    period: "2023",
+    period: "2024",
     description:
       "Built a full-stack web application for managing 3000+ students.",
   },
@@ -62,13 +62,8 @@ export const PROJECTS: Project[] = [
     type: "web",
     role: "Solo-dev",
     year: "2023",
-    gallery: [
-      "/algrab.png",
-      "/algrab-1.png",
-      "/algrab-2.png",
-      "/algrab-3.png",
-      "/algrab-4.png",
-    ],
+    timeline: "7 Months",
+    gallery: ["/algrab.png", "/algrab-1.png", "/algrab-2.png", "/algrab-4.png"],
   },
   {
     id: 2,
@@ -80,7 +75,8 @@ export const PROJECTS: Project[] = [
     imageUrl: "/erp-1.png",
     type: "web",
     role: "Solo-dev",
-    year: "2023",
+    year: "2025",
+    timeline: "4 Months",
     gallery: [
       "/erp-1.png",
       "/erp-2.png",
@@ -108,7 +104,8 @@ export const PROJECTS: Project[] = [
     githubUrl: "",
     type: "web",
     role: "Solo-dev",
-    year: "2023",
+    year: "2022",
+    timeline: "1 year",
     gallery: ["/debbol.png"],
   },
   {
@@ -124,6 +121,7 @@ export const PROJECTS: Project[] = [
     type: "web",
     role: "Solo-dev",
     year: "2022",
+    timeline: "2 Months",
     gallery: [],
   },
   {
@@ -137,6 +135,7 @@ export const PROJECTS: Project[] = [
     type: "web",
     role: "Solo-dev",
     year: "2022",
+    timeline: "1 Month",
     gallery: ["/payment.png", "/payment-1.png"],
   },
 
@@ -152,6 +151,7 @@ export const PROJECTS: Project[] = [
     type: "web",
     role: "Solo-dev",
     year: "2023",
+    timeline: "2 Weeks",
     gallery: ["/times.png"],
   },
   {
@@ -167,6 +167,7 @@ export const PROJECTS: Project[] = [
     type: "web",
     role: "Solo-dev",
     year: "2022",
+    timeline: "4 Months",
     gallery: ["/aicti.png"],
   },
   // {
