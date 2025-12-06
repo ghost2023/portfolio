@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply min-h-screen bg-background text-white selection:bg-primary selection:text-white;
+  }
+}
+
 input:focus {
   outline: none;
 }

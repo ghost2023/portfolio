@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-white selection:bg-primary selection:text-white">
+    <div>
       <Navbar />
       <main className="relative">
         <Hero />

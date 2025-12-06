@@ -78,22 +78,6 @@ const Contact: React.FC = () => {
               </li>
             </ul>
           </div>
-          <div className="lg:col-span-2">
-            <h4 className="text-white font-bold mb-4">Newsletter</h4>
-            <p className="text-gray-500 text-sm mb-4">
-              Subscribe for updates on my latest projects and articles.
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-white/5 border border-white/10 rounded-l-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-primary w-full"
-              />
-              <button className="bg-primary hover:bg-violet-600 px-4 py-2 text-white text-sm font-medium rounded-r-lg transition-colors">
-                Subscribe
-              </button>
-            </div>
-          </div>
         </div>
 
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 font-mono">
