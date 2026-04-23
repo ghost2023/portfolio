@@ -17,16 +17,16 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: "// about", href: "#about" },
     { name: "// work", href: "#projects" },
+    { name: "// Me", href: "#profile" },
     { name: "// contact", href: "#contact" },
   ];
 
   return (
     <nav
-      className={`fixed w-full z-40 transition-all duration-500 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-white/5 py-4"
-          : "bg-transparent py-6"
-      }`}
+      className={`fixed w-full z-40 transition-all duration-500 ${scrolled
+        ? "bg-background/80 backdrop-blur-md border-b border-white/5 py-4"
+        : "bg-transparent py-6"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between">

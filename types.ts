@@ -7,7 +7,7 @@ export interface Project {
   imageUrl: string;
   demoUrl?: string;
   githubUrl?: string;
-  type: "web" | "mobile" | "other";
+  type: "web" | "mobile" | "cli" | "other";
   role?: string;
   year?: string;
   gallery?: string[];

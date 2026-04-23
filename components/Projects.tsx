@@ -4,6 +4,7 @@ import {
   X,
   Smartphone,
   Monitor,
+  Terminal as TerminalIcon,
   Calendar,
   User,
   ArrowUpRight,
@@ -69,7 +70,7 @@ const Projects: React.FC = () => {
               onClick={() => setSelectedId(project.id)}
               className={`group relative cursor-pointer rounded-xl overflow-hidden bg-surface border border-white/5 hover:border-white/20 transition-all duration-700 ${
                 /* Make the second item span 2 columns if on large screen for variety */
-                index === 1 || index === 2 ? "lg:col-span-2" : ""
+                index === 1 || index === 2 || index === 4 ? "lg:col-span-2" : ""
                 }`}
             >
               {/* Image Container with Artistic Filters */}
@@ -78,11 +79,20 @@ const Projects: React.FC = () => {
                 {/* Noise overlay */}
                 <div className="absolute inset-0 opacity-[0.05] pointer-events-none z-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  className="w-full h-full object-cover transform scale-100 group-hover:scale-105 blur-[2px] group-hover:blur-0 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0"
-                />
+                {project.type === "cli" ? (
+                  <div className="w-full h-full flex items-center justify-center bg-zinc-900 group-hover:bg-zinc-800 transition-colors duration-500">
+                    <div className="relative">
+                      <TerminalIcon className="w-24 h-24 text-primary opacity-20 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700" />
+                      <div className="absolute inset-0 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-700"></div>
+                    </div>
+                  </div>
+                ) : (
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="w-full h-full object-cover transform scale-100 group-hover:scale-105 blur-[2px] group-hover:blur-0 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0"
+                  />
+                )}
 
                 {/* Hover Reveal Details */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30">
@@ -102,6 +112,8 @@ const Projects: React.FC = () => {
                     <div className="flex items-center gap-2 mb-3 text-primary text-xs font-mono font-medium uppercase tracking-widest opacity-0  group-hover:opacity-100 transition-opacity duration-500 delay-100">
                       {project.type === "mobile" ? (
                         <Smartphone className="size-3.5" />
+                      ) : project.type === "cli" ? (
+                        <TerminalIcon className="size-3.5" />
                       ) : (
                         <Monitor className="size-3.5" />
                       )}
@@ -132,8 +144,8 @@ const Projects: React.FC = () => {
           {/* Modal Content */}
           <div
             className={`relative w-full h-[calc(100dvh-70px)] backdrop-blur-md border border-white/10 overflow-hidden flex flex-col md:flex-row shadow-2xl shadow-primary/5 transition-all duration-700 cubic-bezier(0.16, 1, 0.3, 1) ${isAnimating
-                ? "scale-100 translate-y-0"
-                : "scale-95 translate-y-12"
+              ? "scale-100 translate-y-0"
+              : "scale-95 translate-y-12"
               }`}
           >
             {/* Left: Visual Showcase */}
@@ -165,6 +177,54 @@ const Projects: React.FC = () => {
                     </div>
                   ))}
                 </div>
+              ) : activeProject.type === "cli" ? (
+                /* CLI Presentation */
+                <div className="w-full max-w-3xl py-12">
+                  <div className={`relative rounded-xl overflow-hidden border border-white/10 bg-black shadow-2xl transform transition-all duration-700 ${isAnimating ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+                    <div className="h-8 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 gap-2">
+                      <div className="flex gap-1.5">
+                        <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/30"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/30"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/30"></div>
+                      </div>
+                      <div className="ml-4 text-[10px] text-gray-500 font-mono">
+                        terminal — {activeProject.title.toLowerCase()}
+                      </div>
+                    </div>
+                    <div className="p-6 font-mono text-sm sm:text-base">
+                      <div className="flex gap-3 mb-2">
+                        <span className="text-green-500">➜</span>
+                        <span className="text-blue-400">~</span>
+                        <span className="text-white">{activeProject.title.toLowerCase()} --help</span>
+                      </div>
+                      <div className="text-gray-400 mb-4">
+                        {activeProject.description}
+                      </div>
+                      <div className="text-primary mb-2">Usage:</div>
+                      <div className="text-gray-300 pl-4 mb-4">
+                        $ {activeProject.title.toLowerCase()} [options] [arguments]
+                      </div>
+                      <div className="text-primary mb-2">Options:</div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 pl-4 text-gray-400">
+                        <div>--version, -v</div>
+                        <div className="text-gray-600">Print version info</div>
+                        <div>--help, -h</div>
+                        <div className="text-gray-600">Show this help message</div>
+                        {activeProject.technologies.slice(0, 2).map(tech => (
+                          <React.Fragment key={tech}>
+                            <div>--{tech.toLowerCase()}</div>
+                            <div className="text-gray-600">Enable {tech} support</div>
+                          </React.Fragment>
+                        ))}
+                      </div>
+                      <div className="mt-6 flex gap-3">
+                        <span className="text-green-500">➜</span>
+                        <span className="text-blue-400">~</span>
+                        <span className="w-2 h-5 bg-white/50 animate-pulse"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ) : (
                 /* Web Presentation */
                 <div className="space-y-12 w-full py-4">
@@ -172,8 +232,8 @@ const Projects: React.FC = () => {
                     <div
                       key={idx}
                       className={`relative rounded-xl overflow-hidden border border-white/10 bg-[#111] shadow-2xl group transform transition-all duration-700 ${isAnimating
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 translate-y-10"
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-10"
                         }`}
                       style={{ transitionDelay: `${idx * 150}ms` }}
                     >
