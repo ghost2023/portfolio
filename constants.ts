@@ -12,6 +12,7 @@ export const SKILLS: Skill[] = [
   { name: "React", category: "frontend" },
   { name: "Postgres", category: "backend" },
   { name: "React Native", category: "backend" },
+  { name: "Flutter", category: "frontend" },
   { name: "Docker", category: "tools" },
   { name: "TypeScript", category: "frontend" },
   { name: "Tailwind CSS", category: "frontend" },
@@ -26,8 +27,8 @@ export const SKILLS: Skill[] = [
 
 export const EXPERIENCE: Experience[] = [
   {
-    role: "Senior Engineer",
-    company: "Efoyy Transport Solutions",
+    role: "CTO & Founder",
+    company: "NegedOS",
     period: "2025 - Present",
     description: "",
   },
@@ -38,6 +39,13 @@ export const EXPERIENCE: Experience[] = [
     period: "2024",
     description:
       "Built a full-stack web application for managing 3000+ students.",
+  },
+  {
+    role: "Full Stack Developer",
+    company: "Cicada",
+    period: "2023 - 2023",
+    description:
+      "Built a full-stack web application for Web3 security platform startup.",
   },
   {
     role: "CTO & Founder",
@@ -67,10 +75,10 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 2,
-    title: "Restaurant ERP",
+    title: "NegedOS",
     description: "End-to-end restaurant management system.",
     longDescription:
-      "Includes ordering, payment validation, staff and role management, inventory/portioning, analytics, and accounting. Backend built with a custom vanilla Next.js setup.",
+      "The most advanced restaurant management system in Ethiopia built for Real restaurants. Includes ordering, payment validation, staff and role management, inventory/portioning, analytics, and accounting.",
     technologies: ["Next.js", "Postgres", "TypeScript", "React", "Node.js"],
     imageUrl: "/erp-1.png",
     type: "web",
@@ -83,6 +91,8 @@ export const PROJECTS: Project[] = [
       "/erp-3.png",
       "/erp-4.png",
       "/erp-5.png",
+      "/erp-6.png",
+      "/erp-7.png",
     ],
   },
   {
