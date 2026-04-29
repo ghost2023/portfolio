@@ -245,7 +245,7 @@ export const contacts = [
     icon: Phone,
   },
   {
-    url: "/updated-resume.pdf",
+    url: "/resume.pdf",
     icon: File,
     label: "Resume",
   },
