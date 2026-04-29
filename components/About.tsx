@@ -1,5 +1,5 @@
 import React from "react";
-import { Briefcase, User, Code, Terminal, Database, Cpu } from "lucide-react";
+import { Briefcase, User, Code, Terminal, Database, Cpu, GraduationCap } from "lucide-react";
 import { DEV_BIO, EXPERIENCE, SKILLS } from "../constants";
 
 const About: React.FC = () => {
@@ -27,7 +27,7 @@ const About: React.FC = () => {
                 {DEV_BIO}
               </p>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="p-6 bg-white/5 rounded-2xl border border-white/5">
                   <h3 className="text-3xl font-bold text-white mb-1">5+</h3>
                   <p className="text-gray-500 font-mono text-sm">
@@ -39,6 +39,18 @@ const About: React.FC = () => {
                   <p className="text-gray-500 font-mono text-sm">
                     Projects Deployed
                   </p>
+                </div>
+              </div>
+
+              {/* Education Section */}
+              <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10">
+                <div className="flex items-center gap-3 mb-2">
+                  <GraduationCap className="w-5 h-5 text-primary" />
+                  <h3 className="text-lg font-bold text-white">Academic Foundation</h3>
+                </div>
+                <div className="pl-8">
+                   <p className="text-white font-medium">B.Sc. in Computer Science</p>
+                   <p className="text-gray-400 text-sm">St. Mary University • Expected Winter 2027</p>
                 </div>
               </div>
             </div>

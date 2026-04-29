@@ -31,20 +31,20 @@ const Hero: React.FC = () => {
 
             <div className="space-y-2">
               <h2 className="text-primary font-mono text-lg tracking-widest">
-                HELLO_WORLD
+                SYSTEM_INIT
               </h2>
-              <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-white leading-tight">
-                I build digital <br />
+              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
+                Engineering <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">
-                  experiences.
+                  Resilient Systems.
                 </span>
               </h1>
             </div>
 
             <p className="max-w-xl text-gray-400 text-lg leading-relaxed border-l-2 border-white/10 pl-6">
-              Senior Creative Developer specializing in performant web and
-              mobile applications and immersive interfaces. blending code and
-              art.
+              Full-Stack Systems Engineer specializing in high-performance
+              distributed architectures, robust APIs, and frictionless user
+              experiences.
             </p>
 
             <div className="flex items-center gap-6 pt-4">
@@ -60,7 +60,9 @@ const Hero: React.FC = () => {
                 {contacts
                   .filter(
                     (c) =>
-                      c.url.includes("github") || c.url.includes("linkedin"),
+                      c.url.includes("github") ||
+                      c.url.includes("linkedin") ||
+                      c.url.includes("tel"),
                   )
                   .map((contact) => (
                     <a
@@ -130,10 +132,22 @@ const Hero: React.FC = () => {
                     </span>
                   </a>
                   <a
-                    href="#contact"
+                    href="#profile"
                     className="group flex items-center gap-3 text-gray-400 hover:text-primary transition-colors cursor-pointer"
                   >
                     <span className="text-gray-600">03</span>
+                    <span className="group-hover:translate-x-2 transition-transform">
+                      Me:{" "}
+                      <span className="text-gray-500">
+                        "Learn more about me"
+                      </span>
+                    </span>
+                  </a>
+                  <a
+                    href="#contact"
+                    className="group flex items-center gap-3 text-gray-400 hover:text-primary transition-colors cursor-pointer"
+                  >
+                    <span className="text-gray-600">04</span>
                     <span className="group-hover:translate-x-2 transition-transform">
                       contact:{" "}
                       <span className="text-gray-500">"Get in touch"</span>

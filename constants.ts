@@ -1,10 +1,9 @@
-import { Github, Linkedin, LucideMail, File } from "lucide-react";
+import { Github, Linkedin, LucideMail, File, Phone } from "lucide-react";
 import { Project, Skill, Experience } from "./types";
 import Telegram from "./icons/Telegram";
 
 export const DEV_NAME = "Nathnael Wondisha";
-export const DEV_TITLE = "Senior Creative Developer";
-export const DEV_BIO = `I build accessible, pixel-perfect, and performant web and mobile experiences. With over 5 years of experience in the React ecosystem, I blend technical expertise with a keen eye for design to create software that doesn't just work—it feels good to use.`;
+export const DEV_BIO = `I am a Systems-focused Engineer who builds robust, scalable software where reliability is the foundation. With over 5 years of experience across the full stack, I specialize in architecting distributed systems, solving complex concurrency issues, and building high-performance interfaces that make complex tools feel intuitive.`;
 
 export const SKILLS: Skill[] = [
   { name: "Linux", category: "backend" },
@@ -23,6 +22,10 @@ export const SKILLS: Skill[] = [
   { name: "Firebase", category: "backend" },
   { name: "AWS", category: "backend" },
   { name: "Golang", category: "backend" },
+  { name: "Rust", category: "backend" },
+  { name: "Nix", category: "tools" },
+  { name: "Dokploy", category: "tools" },
+  { name: "Coolify", category: "tools" },
 ];
 
 export const EXPERIENCE: Experience[] = [
@@ -30,29 +33,36 @@ export const EXPERIENCE: Experience[] = [
     role: "CTO & Founder",
     company: "NegedOS",
     period: "2025 - Present",
-    description: "",
+    description:
+      "Architected a full-scale restaurant ERP system handling hundreds of daily orders. Built integrated modules for inventory, accounting, and analytics with custom payment verification workflows.",
+  },
+  {
+    role: "Software Engineer",
+    company: "Efoyy Ride",
+    period: "2025 - 2026",
+    description:
+      "Improved onboarding speed by 30-50% and reduced app startup time by 50%. Established monitoring systems and redesigned payment flows to increase successful transactions.",
   },
   {
     role: "Lead Developer",
-    company:
-      "American Institute for Certification Technology Incorporated(AICTI)",
+    company: "AICTI",
     period: "2024",
     description:
-      "Built a full-stack web application for managing 3000+ students.",
+      "Built and maintained a student management system for 3,000+ users, developing core features for course delivery and enrollment.",
   },
   {
     role: "Full Stack Developer",
     company: "Cicada",
     period: "2023 - 2023",
     description:
-      "Built a full-stack web application for Web3 security platform startup.",
+      "Developed responsive UI for a Web3 security platform and implemented a real-time chat feature independently.",
   },
   {
-    role: "CTO & Founder",
-    company: "Debol LLC",
+    role: "Lead Engineer",
+    company: "Debbol",
     period: "2022",
     description:
-      "Building A large ecommerce platform start up as solo developer",
+      "Designed multi-tenant architecture and subscription-based payment systems for a fast-growing eCommerce startup.",
   },
 ];
 
@@ -213,28 +223,6 @@ export const PROJECTS: Project[] = [
   // },
 ];
 
-export const SYSTEM_INSTRUCTION = `
-You are an AI assistant for ${DEV_NAME}'s portfolio website. 
-Your goal is to answer visitor questions about Alex professionally, concisely, and with a touch of wit.
-Use the following context to answer questions:
-
-Name: ${DEV_NAME}
-Role: ${DEV_TITLE}
-Bio: ${DEV_BIO}
-
-Skills: ${SKILLS.map((s) => s.name).join(", ")}
-
-Projects:
-${PROJECTS.map((p) => `- ${p.title} (${p.year}): ${p.description} (Tech: ${p.technologies.join(", ")})`).join("\n")}
-
-Experience:
-${EXPERIENCE.map((e) => `- ${e.role} at ${e.company} (${e.period}): ${e.description}`).join("\n")}
-
-If asked about contact info, suggest they scroll to the contact section or email alex.dev@example.com.
-Do not hallucinate projects or skills not listed here.
-Keep responses under 3 sentences unless asked for details.
-`;
-
 export const contacts = [
   {
     url: "mailto:nathnaelwonisha@gmail.com",
@@ -249,10 +237,13 @@ export const contacts = [
     icon: Telegram,
   },
   {
-    url: "www.linkedin.com/in/nathnael-wondisha-67b048227",
+    url: "https://www.linkedin.com/in/nathnael-wondisha-67b048227",
     icon: Linkedin,
   },
-
+  {
+    url: "tel:+251946669787",
+    icon: Phone,
+  },
   {
     url: "/updated-resume.pdf",
     icon: File,

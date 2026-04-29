@@ -38,24 +38,24 @@ const Me: React.FC = () => {
           <div className="lg:col-span-7 space-y-12">
             <div className="prose prose-invert max-w-none">
               <p className="text-2xl text-gray-300 leading-relaxed font-light">
-                I am a builder who thrives at the intersection of <span className="text-white font-medium">performance</span> and <span className="text-white font-medium">aesthetics</span>. Currently, I'm deep-rooting my expertise in <span className="text-primary">AI & Machine Learning</span> to create smarter, more adaptive systems.
+                I am an engineer who thrives on <span className="text-white font-medium">architectural complexity</span> and <span className="text-white font-medium">runtime efficiency</span>. Currently, I'm exploring the optimization of <span className="text-primary">Small AI Models</span> to build intelligent systems that are fast, private, and resource-efficient.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm group hover:border-primary/50 transition-all duration-500">
                 <Terminal className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-white font-bold text-lg mb-2">Dev Environment</h3>
+                <h3 className="text-white font-bold text-lg mb-2">Systems Architecture</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Daily driver: <span className="text-gray-200">Linux + Neovim</span>. I value speed and minimalism, stripping away the bloat to focus on pure craftsmanship.
+                  I prioritize <span className="text-gray-200">reliability and performance</span>. Whether it's solving race conditions or optimizing DB queries, I build systems that don't just work—they scale.
                 </p>
               </div>
 
               <div className="p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm group hover:border-secondary/50 transition-all duration-500">
                 <Shield className="w-8 h-8 text-secondary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-white font-bold text-lg mb-2">Emerging Tech</h3>
+                <h3 className="text-white font-bold text-lg mb-2">Technical Depth</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Exploring <span className="text-gray-200">Rust & Go</span> for their uncompromising stance on safety and runtime efficiency. Always learning, always optimizing.
+                  Deep-diving into <span className="text-gray-200">Rust & Go</span> for low-level control. I value the safety and speed that come from using the right tool for the job.
                 </p>
               </div>
             </div>

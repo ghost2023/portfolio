@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, MapPin, ArrowRight, File } from "lucide-react";
+import { Mail, MapPin, ArrowRight, File, Phone, Download } from "lucide-react";
 import { DEV_NAME, contacts } from "../constants";
 
 const Contact: React.FC = () => {
@@ -16,20 +16,38 @@ const Contact: React.FC = () => {
           <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
             Get In Touch
           </h2>
-          <p className="text-gray-400 max-w-lg text-lg">
+          <p className="text-gray-400 max-w-lg text-lg py-8">
             I'm currently looking for new opportunities. Whether you have a
             question or just want to say hi, I'll try my best to get back to
             you!
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex sm:items-center max-sm:flex-col mt-8 gap-4">
             <a
               href={contacts.find((c) => c.icon === Mail)?.url}
               className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white hover:bg-white/10 hover:border-primary/50 transition-all"
             >
               <Mail className="w-5 h-5 text-primary" />
-              <span className="font-mono">Say Hello</span>
+              <span className="font-mono flex flex-col items-start gap-1">
+                <div>Say Hello</div>
+                <div className="text-sm text-gray-400 font-medium">
+                  nathnaelwonisha@gmail.com
+                </div>
+              </span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
+            <a
+              href={contacts.find((c) => c.url.includes("tel"))?.url}
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white hover:bg-white/10 hover:border-primary/50 transition-all"
+            >
+              <Phone className="w-5 h-5 text-primary" />
+              <span className="font-mono flex flex-col items-start gap-1">
+                <div>Call me</div>
+                <div className="text-sm text-gray-400 font-medium">
+                  +251-94-666-9787
+                </div>
+              </span>
+              <ArrowRight className="w-4 h-4 ml-auto group-hover:translate-x-1 transition-transform" />
+            </a>{" "}
             <a
               href={contacts.find((c) => c.label === "Resume")?.url}
               download
@@ -37,7 +55,7 @@ const Contact: React.FC = () => {
             >
               <File className="w-5 h-5 text-primary" />
               <span className="font-mono">Download Resume</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <Download className="w-4 h-4 ml-auto group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </div>
@@ -60,7 +78,9 @@ const Contact: React.FC = () => {
                           ? "LinkedIn"
                           : contact.url.includes("t.me")
                             ? "Telegram"
-                            : "Social"}
+                            : contact.url.includes("tel")
+                              ? "Call"
+                              : "Social"}
                     </a>
                   </li>
                 ))}
