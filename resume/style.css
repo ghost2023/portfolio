@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "GaretHeavy";
+  src: url("../fonts/Garet/GaretHeavy/GaretHeavy.eot");
+  src:
+    url("../fonts/Garet/GaretHeavy/GaretHeavy.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Garet/GaretHeavy/GaretHeavy.woff") format("woff"),
+    url("../fonts/Garet/GaretHeavy/GaretHeavy.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GaretBook";
+  src: url("../fonts/Garet/GaretBook/GaretBook.eot");
+  src:
+    url("../fonts/Garet/GaretBook/GaretBook.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Garet/GaretBook/GaretBook.woff") format("woff"),
+    url("../fonts/Garet/GaretBook/GaretBook.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+* {
+  color: #2e2c2c;
+  line-height: 1.5;
+  font-size: 1rem;
+  font-family: "GaretBook", sans-serif;
+}
+
+[data-field="name"] {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+center {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #1a73e8;
+}
+
+hr {
+  color: #2e2c2c9a;
+}
+
+section {
+  margin: 1rem 0;
+}
+
+h2 {
+  border: none;
+  color: #121212;
+  font-size: 1.5rem;
+}
+
+section[data-section="work"]>p {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
