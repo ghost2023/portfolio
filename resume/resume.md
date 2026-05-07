@@ -9,7 +9,7 @@ vars:
 Software Engineer
 </center>
 
-[nathnaelwonisha@gmail.com](mailto:nathnaelwonisha@gmail.com) | [linkedin.com/in/nathnael-wondisha-67b048227](https://linkedin.com/in/nathnael-wondisha-67b048227) | [github.com/ghost2023](https://github.com/ghost2023)
+[nathnaelwonisha@gmail.com](mailto:nathnaelwonisha@gmail.com) | [linkedin.com/in/nathnael-wondisha-67b048227](https://linkedin.com/in/nathnael-wondisha-67b048227) | [github.com/ghost2023](https://github.com/ghost2023) | [My Website](https://nati-wondisha.vercel.app)
 
 {{ tagline }}
 
