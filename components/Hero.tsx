@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download, MapPin } from "lucide-react";
 import { contacts } from "../constants";
 
 const Hero: React.FC = () => {
@@ -22,38 +22,55 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Column: Content */}
           <div className="space-y-8 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              <span className="text-xs font-mono text-gray-400">
-                Available for hire
-              </span>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span className="text-xs font-mono text-gray-400">
+                  Available for hire
+                </span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                <MapPin className="w-3.5 h-3.5 text-gray-400" />
+                <span className="text-xs font-mono text-gray-400">
+                  Addis Ababa, Ethiopia
+                </span>
+              </div>
             </div>
 
             <div className="space-y-2">
-              <h2 className="text-primary font-mono text-lg tracking-widest">
-                SYSTEM_INIT
-              </h2>
-              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
-                Engineering <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">
-                  Resilient Systems.
+              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight [text-wrap:balance]">
+                I build systems <br />
+                <span className="text-gray-400">
+                  that move real money.
                 </span>
               </h1>
             </div>
 
             <p className="max-w-xl text-gray-400 text-lg leading-relaxed border-l-2 border-white/10 pl-6">
-              Full-Stack Systems Engineer specializing in high-performance
-              distributed architectures, robust APIs, and frictionless user
-              experiences.
+              I'm <span className="text-white">Nathnael</span>, a full-stack
+              engineer. I build logistics and ERP platforms for Ethio-Djibouti
+              Railway, now handling{" "}
+              <span className="text-white">millions of ETB a month</span>, and a
+              restaurant ERP I've run in production for{" "}
+              <span className="text-white">15+ months</span>. I work in
+              TypeScript, Node.js, React and PostgreSQL.
             </p>
 
-            <div className="flex items-center gap-6 pt-4">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-6 pt-4">
               <a
                 href="#projects"
                 className="group flex items-center gap-3 px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-all hover:scale-105"
               >
                 View Work
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="/resume.pdf"
+                download
+                className="group flex items-center gap-2 px-5 py-3 text-white font-medium rounded-full border border-white/15 hover:bg-white/5 hover:border-white/30 transition-colors"
+              >
+                Resume
+                <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
               </a>
 
               <div className="flex items-center gap-4">
@@ -68,6 +85,7 @@ const Hero: React.FC = () => {
                     <a
                       key={contact.url}
                       href={contact.url}
+                      aria-label={contact.url.includes("github") ? "GitHub" : contact.url.includes("linkedin") ? "LinkedIn" : "Phone"}
                       className="p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all"
                     >
                       <contact.icon className="w-5 h-5" />

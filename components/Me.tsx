@@ -22,9 +22,9 @@ const Me: React.FC = () => {
               </span>
             </div>
             <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
-              Crafting{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-white">
-                Intelligence
+              How I{" "}
+              <span className="text-gray-500">
+                Build
               </span>
             </h2>
           </div>
@@ -38,7 +38,7 @@ const Me: React.FC = () => {
           <div className="lg:col-span-7 space-y-12">
             <div className="prose prose-invert max-w-none">
               <p className="text-2xl text-gray-300 leading-relaxed font-light">
-                I am an engineer who thrives on <span className="text-white font-medium">architectural complexity</span> and <span className="text-white font-medium">runtime efficiency</span>. Currently, I'm exploring the optimization of <span className="text-primary">Small AI Models</span> to build intelligent systems that are fast, private, and resource-efficient.
+                When software handles someone's money, <span className="text-white font-medium">"mostly works" isn't good enough</span>. I design for the bad day: concurrent payments, retried webhooks, flaky networks, stock that doesn't match the books. Then I write the tests that prove it holds. On the side, I'm exploring <span className="text-primary">small AI models</span> that run fast and private.
               </p>
             </div>
 
@@ -47,7 +47,7 @@ const Me: React.FC = () => {
                 <Terminal className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-white font-bold text-lg mb-2">Systems Architecture</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  I prioritize <span className="text-gray-200">reliability and performance</span>. Whether it's solving race conditions or optimizing DB queries, I build systems that don't just work—they scale.
+                  <span className="text-gray-200">Double-entry ledgers, row locks, idempotent payment handling</span>, and race and soak tests that check invariants against a real database. That's how I make sure the numbers add up.
                 </p>
               </div>
 

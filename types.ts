@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react";
+
 export interface Project {
   id: number;
   title: string;
@@ -12,6 +14,8 @@ export interface Project {
   year?: string;
   gallery?: string[];
   timeline?: string;
+  icon?: LucideIcon;
+  highlights?: { value: string; label: string }[];
 }
 
 export interface Skill {

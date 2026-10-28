@@ -17,7 +17,7 @@ Software Engineer
 
 ## Summary
 
-Systems-focused Full-Stack Engineer with a track record of building resilient, production-grade applications. Expert in designing distributed architectures, building reliable and scalable system. Specializing in JavaScript, Nodejs, and the React/Next.js ecosystem. Proven ability to deliver high-stakes systems (ERP, Fintech, Marketplaces) that balance architectural depth with frictionless user experiences.
+Full-stack engineer who builds business systems that handle real money: a logistics platform and an ERP for Ethio-Djibouti Railway, a restaurant ERP running in production, and payment, marketplace and fintech products before that. Most of my work is in TypeScript (Node.js, NestJS, React) on PostgreSQL. I care about correct numbers, safe concurrency, and software that people on the floor can use under pressure.
 
 ---
 
@@ -30,13 +30,38 @@ St. Mary University — Expected Graduation: Winter 2027
 
 ## Work Experience and Projects
 
-**Negedos - CTO / Lead Engineer**
+**Tria - Software Engineer, Ethio-Djibouti Railway (EDR) Platform**
 
-- Architected and led development of a full-scale restaurant ERP system actively used in production
-- Built integrated modules for menu, inventory, ingredients, accounting, and analytics
-- Designed systems handling hundreds of daily orders and payment transactions
-- Implemented payment verification workflows to ensure transaction reliability (a key differentiator from competitors)
-- Built backend architecture to support complex operational and financial reporting
+_EDR ILMS: national rail freight and passenger platform. Live, processing millions of ETB per month_
+
+- One of a small core team that took Ethio-Djibouti Railway's freight and passenger operations from manual processes to a live digital platform in about 5 months. It spans 11 services, 1,500+ API endpoints and 7 payment gateways
+- Core engineer on the freight subsystem (NestJS, TypeORM, PostgreSQL, RabbitMQ, React), covering the whole cargo lifecycle from customer booking and pricing through invoicing, payment, dispatch and delivery
+- Built the payment and billing path that the platform's monthly revenue runs through: booking payments over Telebirr, CBE Birr, D-Money, Waafi and card gateways, invoice settlement, and manual payment reconciliation
+- Added multi-currency support (ETB, USD, DJF) across billing, payments and reporting for cross-border Ethiopia–Djibouti traffic
+- Integrated invoicing with the Ethiopian Ministry of Revenue e-invoicing system (EIMS) to keep it compliant with tax rules
+- Built the reporting module of 50+ financial and operational reports with exports, used by management and finance. Also built CRM, complaint and case management with SLA escalation, customer surveys and support chat
+- Supported production operations alongside development: fixed live issues, helped operations and finance staff, and handled data corrections on a system that moves real money every day
+
+_EDR ERP: finance, procurement and HR for the railway (live)_
+
+- Core developer in a team of about six. I owned the procurement module end to end, from the API and UI through to testing
+- Digitized the railway's whole procurement process: demand planning, annual and consolidated plans, requisitions, RFQs and tenders with committee scoring and lot-by-lot awards, contracts and purchase orders, and goods receipt with inspection
+- Built budget control (per line and cost center, with warn, block or hold) and configurable multi-step approval workflows with delegation, so spending follows public-procurement rules
+- Built warehouse inventory by site, store and bin, with transfers, counts and replenishment. Capital items flow into the asset register, and supplier bills and payment terms flow into finance
+- Wrote the Playwright end-to-end test suite covering the critical procurement and approval flows
+
+**NegedOS - CTO / Lead Engineer**
+
+_Restaurant operating system and ERP for multi-branch restaurant groups in Ethiopia. Live since 2025_
+
+- Designed and built the product from scratch, wrote ~95% of the codebase, and ran it in production for 15+ months. It handles hundreds of orders and payments every day
+- Runs the whole restaurant in one system: floor ordering, kitchen and bar, cashier, inventory, accounting, and owner reporting. The stack is React, Hono, oRPC (about 200 endpoints), PostgreSQL and Drizzle
+- Built automatic payment verification: Telebirr and CBE transfer receipts are checked against each branch's bank accounts and suspicious payments are flagged. This reduces fraud risk and replaces manual checking at the till
+- Built FIFO batch inventory costing across a central warehouse and per-branch stores, with recipes, transfers, requisitions, counts and waste tracking. Stock shortfalls never block a sale; they are reconciled afterwards
+- Built double-entry accounting posted automatically from every sale, purchase and stock movement, producing a live trial balance, general ledger and financial statements
+- Built a real-time floor app (PWA) for waiters, cashiers and kitchen staff that works on low-end Android phones over poor networks
+- Built for correctness: 80+ integration test files run against real PostgreSQL, and Playwright tests for race conditions and sustained load (soak tests) check financial invariants. I also wrote custom lint rules that stop deadlocks before they ship, and migrated the whole platform from Next.js to Vite + Hono
+- Owner Telegram bot with daily sales, stock and order summaries
 
 **Efoyy Ride - Software Engineer (Full-stack / Mobile)**
 
@@ -97,6 +122,6 @@ St. Mary University — Expected Graduation: Winter 2027
 
 **Languages:** JavaScript, TypeScript, Python, Go, Rust, SQL, HTML, CSS, Dart, Lua
 **Frontend:** React, Next.js, Angular, Svelte  
-**Backend:** Node.js, Express, Honojs  
+**Backend:** Node.js, NestJS, Express, Hono, oRPC, TypeORM, Drizzle, RabbitMQ  
 **Mobile:** Flutter, React Native  
-**Databases & Tools:** Linux, Firebase, Redis, Stripe, PostgresQL, MongoDB, MySQL, Docker, Grafana, AWS, GCP, Digital Ocean.
+**Databases & Tools:** Linux, Firebase, Redis, Stripe, PostgresQL, MongoDB, MySQL, Docker, Playwright, Vitest, GitLab CI, Grafana/Loki, AWS, GCP, Digital Ocean.

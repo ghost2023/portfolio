@@ -15,7 +15,7 @@ const About: React.FC = () => {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-primary font-mono text-sm tracking-wider">
-                  01. ABOUT ME
+                  ABOUT ME
                 </span>
                 <div className="h-px bg-white/10 flex-grow"></div>
               </div>
@@ -35,9 +35,9 @@ const About: React.FC = () => {
                   </p>
                 </div>
                 <div className="p-6 bg-white/5 rounded-2xl border border-white/5">
-                  <h3 className="text-3xl font-bold text-white mb-1">9+</h3>
+                  <h3 className="text-3xl font-bold text-white mb-1">3</h3>
                   <p className="text-gray-500 font-mono text-sm">
-                    Projects Deployed
+                    ERP &amp; logistics systems in production
                   </p>
                 </div>
               </div>

@@ -13,6 +13,11 @@ import {
 import { PROJECTS } from "../constants";
 import { Project } from "../types";
 
+const ProjectIcon = ({ project, className }: { project: Project; className: string }) => {
+  const Icon = project.icon ?? TerminalIcon;
+  return <Icon className={className} />;
+};
+
 const Projects: React.FC = () => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [activeProject, setActiveProject] = useState<Project | null>(null);
@@ -41,6 +46,13 @@ const Projects: React.FC = () => {
     return () => clearTimeout(timer);
   }, [selectedId]);
 
+  useEffect(() => {
+    if (!selectedId) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setSelectedId(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [selectedId]);
+
   return (
     <section id="projects" className="py-32 bg-background relative z-10">
       <div className="max-w-[1400px] mx-auto px-6">
@@ -54,9 +66,9 @@ const Projects: React.FC = () => {
               </span>
             </div>
             <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
-              Digital{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-white">
-                Artifacts
+              Shipped{" "}
+              <span className="text-gray-500">
+                Systems
               </span>
             </h2>
           </div>
@@ -67,10 +79,14 @@ const Projects: React.FC = () => {
           {PROJECTS.map((project, index) => (
             <div
               key={project.id}
+              role="button"
+              tabIndex={0}
+              aria-label={`Open ${project.title}`}
               onClick={() => setSelectedId(project.id)}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), setSelectedId(project.id))}
               className={`group relative cursor-pointer rounded-xl overflow-hidden bg-surface border border-white/5 hover:border-white/20 transition-all duration-700 ${
-                /* Make the second item span 2 columns if on large screen for variety */
-                index === 1 || index === 2 || index === 4 ? "lg:col-span-2" : ""
+                /* Alternate wide cards so each row fills 3 columns; the flagship (first) is wide */
+                index % 4 === 0 || index % 4 === 3 ? "lg:col-span-2" : ""
                 }`}
             >
               {/* Image Container with Artistic Filters */}
@@ -79,18 +95,28 @@ const Projects: React.FC = () => {
                 {/* Noise overlay */}
                 <div className="absolute inset-0 opacity-[0.05] pointer-events-none z-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 
-                {project.type === "cli" ? (
-                  <div className="w-full h-full flex items-center justify-center bg-zinc-900 group-hover:bg-zinc-800 transition-colors duration-500">
+                {project.type === "cli" || !project.imageUrl ? (
+                  <div className="w-full h-full flex flex-col items-center justify-center gap-8 px-8 pb-24 bg-zinc-900 group-hover:bg-zinc-800 transition-colors duration-500">
                     <div className="relative">
-                      <TerminalIcon className="w-24 h-24 text-primary opacity-20 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700" />
+                      <ProjectIcon project={project} className="w-24 h-24 text-primary opacity-20 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700" />
                       <div className="absolute inset-0 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-700"></div>
                     </div>
+                    {project.highlights && (
+                      <div className="relative z-20 flex flex-wrap justify-center gap-x-10 gap-y-4 text-center">
+                        {project.highlights.map((h) => (
+                          <div key={h.label}>
+                            <div className="text-2xl font-bold text-white">{h.value}</div>
+                            <div className="text-gray-400 font-mono text-[11px] uppercase tracking-wider">{h.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <img
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-full object-cover transform scale-100 group-hover:scale-105 blur-[2px] group-hover:blur-0 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0"
+                    className="w-full h-full object-cover transform scale-100 group-hover:scale-105 [@media(hover:hover)]:blur-[2px] [@media(hover:hover)]:grayscale group-hover:blur-0 group-hover:grayscale-0 transition-[transform,filter] duration-1000 ease-out"
                   />
                 )}
 
@@ -124,7 +150,7 @@ const Projects: React.FC = () => {
                     </h3>
                   </div>
                   <div className="hidden md:flex text-4xl text-zinc-100/15 group-hover:text-zinc-100/80 font-bold font-mono transition-colors">
-                    0{index + 1}
+                    {String(index + 1).padStart(2, "0")}
                   </div>
                 </div>
               </div>
@@ -225,6 +251,20 @@ const Projects: React.FC = () => {
                     </div>
                   </div>
                 </div>
+              ) : !activeProject.gallery?.length ? (
+                /* No screenshots (private client systems): show the key numbers instead */
+                <div className="w-full h-full flex flex-col items-center justify-center gap-10 py-12">
+                  <ProjectIcon project={activeProject} className="w-24 h-24 text-primary opacity-60" />
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-2xl">
+                    {activeProject.highlights?.map((h) => (
+                      <div key={h.label} className="p-6 rounded-2xl bg-zinc-950/90 border border-white/10 text-center">
+                        <div className="text-3xl font-bold text-white mb-1">{h.value}</div>
+                        <div className="text-gray-400 font-mono text-xs uppercase tracking-wider">{h.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="px-3 py-1 rounded-full bg-zinc-950/90 text-gray-400 font-mono text-xs">Client system: screenshots available on request</p>
+                </div>
               ) : (
                 /* Web Presentation */
                 <div className="space-y-12 w-full py-4">
@@ -306,6 +346,17 @@ const Projects: React.FC = () => {
                     </div>
                   </div>
                 </div>
+
+                {!!activeProject.highlights?.length && !!activeProject.gallery?.length && (
+                  <div className="grid grid-cols-3 gap-4">
+                    {activeProject.highlights.map((h) => (
+                      <div key={h.label}>
+                        <div className="text-2xl font-bold text-white">{h.value}</div>
+                        <div className="text-gray-400 font-mono text-xs uppercase tracking-wider">{h.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 <div>
                   <h3 className="text-sm font-bold text-gray-200 uppercase tracking-wider mb-4 flex items-center gap-2">
