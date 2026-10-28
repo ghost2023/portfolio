@@ -1,12 +1,4 @@
-import {
-  Github,
-  Linkedin,
-  LucideMail,
-  File,
-  Phone,
-  TrainFront,
-  Building2,
-} from "lucide-react";
+import { Github, Linkedin, LucideMail, File, Phone, TrainFront, Building2 } from "lucide-react";
 import { Project, Skill, Experience } from "./types";
 import Telegram from "./icons/Telegram";
 
@@ -100,13 +92,14 @@ export const PROJECTS: Project[] = [
       { value: "11", label: "services in production" },
     ],
     technologies: ["NestJS", "TypeORM", "PostgreSQL", "RabbitMQ", "React", "Docker", "GitLab CI"],
-    imageUrl: "",
+
+    imageUrl: "/EDR.png",
     icon: TrainFront,
     type: "web",
     role: "Core Engineer (Freight)",
     year: "2026",
     timeline: "5 months to launch, ongoing",
-    gallery: [],
+    gallery: ["/EDR.png"],
   },
   {
     id: 13,
@@ -120,13 +113,13 @@ export const PROJECTS: Project[] = [
       { value: "~6", label: "engineers on the team" },
     ],
     technologies: ["NestJS", "TypeORM", "PostgreSQL", "React", "Mantine", "Playwright"],
-    imageUrl: "",
+    imageUrl: "/EDR.png",
     icon: Building2,
     type: "web",
     role: "Core Developer (Procurement)",
     year: "2026",
     timeline: "Live, ongoing",
-    gallery: [],
+    gallery: ["/EDR.png"],
   },
   {
     id: 2,
@@ -141,12 +134,13 @@ export const PROJECTS: Project[] = [
       { value: "95%", label: "of the code written by me" },
     ],
     technologies: ["React", "Hono", "oRPC", "PostgreSQL", "Drizzle", "Playwright", "Vitest"],
-    imageUrl: "/erp-1.png",
+    imageUrl: "/NegedOs.png",
     type: "web",
     role: "CTO / Lead Engineer",
     year: "2025",
     timeline: "15+ months, ongoing",
     gallery: [
+      "/NegedOs.png",
       "/erp-1.png",
       "/erp-2.png",
       "/erp-3.png",
@@ -178,14 +172,7 @@ export const PROJECTS: Project[] = [
     description: "A complete eCommerce platform.",
     longDescription:
       "Built with Next.js, React Native, Postgres, Prisma, and Stripe. Includes product dashboards, RBAC, and mobile app for users.",
-    technologies: [
-      "Next.js",
-      "React Native",
-      "TypeScript",
-      "Postgres",
-      "Prisma",
-      "Stripe",
-    ],
+    technologies: ["Next.js", "React Native", "TypeScript", "Postgres", "Prisma", "Stripe"],
     imageUrl: "/debbol.png",
     demoUrl: "https://debbol.com",
     githubUrl: "",
@@ -235,8 +222,7 @@ export const PROJECTS: Project[] = [
     id: 9,
     title: "Times Business Group",
     description: "Modern business website for a client.",
-    longDescription:
-      "Showcases company services, products, and contact flows with a clean design.",
+    longDescription: "Showcases company services, products, and contact flows with a clean design.",
     technologies: ["Next.js", "React", "TypeScript"],
     imageUrl: "/times.png",
     demoUrl: "https://times-rosy.vercel.app/",
