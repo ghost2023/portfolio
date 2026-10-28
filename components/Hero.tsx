@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
               I'm <span className="text-white">Nathnael</span>, a full-stack
               engineer. I build logistics and ERP platforms for Ethio-Djibouti
               Railway, now handling{" "}
-              <span className="text-white">millions of ETB a month</span>, and a
+              <span className="text-white">hundreds of millions of ETB a month</span>, and a
               restaurant ERP I've run in production for{" "}
               <span className="text-white">15+ months</span>. I work in
               TypeScript, Node.js, React and PostgreSQL.

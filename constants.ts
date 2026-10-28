@@ -39,7 +39,7 @@ export const EXPERIENCE: Experience[] = [
     company: "Tria · Ethio-Djibouti Railway",
     period: "2026 - Present",
     description:
-      "Core engineer on EDR's freight platform, which went live in about 5 months and now processes millions of ETB a month. I built bookings, billing, payments, multi-currency (ETB/USD/DJF), Ministry of Revenue e-invoicing and reporting. I also own the procurement module of EDR's ERP.",
+      "Core engineer on EDR's freight platform, which went live in about 5 months and now processes hundreds of millions of ETB a month. I built bookings, billing, payments, multi-currency (ETB/USD/DJF), Ministry of Revenue e-invoicing and reporting. I also own the procurement module of EDR's ERP.",
   },
   {
     role: "CTO & Founder",
@@ -85,9 +85,9 @@ export const PROJECTS: Project[] = [
     description:
       "The logistics platform Ethio-Djibouti Railway uses to sell and run freight and passenger services.",
     longDescription:
-      "A national rail platform built by a small team and taken live in about 5 months. It now processes millions of ETB in payments every month. I'm a core engineer on the freight subsystem, which covers the cargo lifecycle from booking and pricing through invoicing, payment, dispatch and delivery. I built the billing and payment path (Telebirr, CBE Birr, D-Money, Waafi, card), multi-currency support for ETB/USD/DJF, the Ministry of Revenue e-invoicing (EIMS) integration and the reporting module. I also built CRM, complaint handling with SLA escalation, and customer surveys, and I support the system in production.",
+      "A national rail platform built by a small team and taken live in about 5 months. It now processes hundreds of millions of ETB in payments every month. I'm a core engineer on the freight subsystem, which covers the cargo lifecycle from booking and pricing through invoicing, payment, dispatch and delivery. I built the billing and payment path (Telebirr, CBE Birr, D-Money, Waafi, card), multi-currency support for ETB/USD/DJF, the Ministry of Revenue e-invoicing (EIMS) integration and the reporting module. I also built CRM, complaint handling with SLA escalation, and customer surveys, and I support the system in production.",
     highlights: [
-      { value: "Millions", label: "ETB processed per month" },
+      { value: "~800M", label: "ETB processed per month" },
       { value: "5 mo", label: "from start to live" },
       { value: "11", label: "services in production" },
     ],
@@ -99,7 +99,7 @@ export const PROJECTS: Project[] = [
     role: "Core Engineer (Freight)",
     year: "2026",
     timeline: "5 months to launch, ongoing",
-    gallery: ["/EDR.png"],
+    gallery: ["/EDR.png", "/EDR2.png"],
   },
   {
     id: 13,

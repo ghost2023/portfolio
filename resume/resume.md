@@ -32,7 +32,7 @@ St. Mary University — Expected Graduation: Winter 2027
 
 **Tria - Software Engineer, Ethio-Djibouti Railway (EDR) Platform**
 
-_EDR ILMS: national rail freight and passenger platform. Live, processing millions of ETB per month_
+_EDR ILMS: national rail freight and passenger platform. Live, processing hundreds of millions of ETB per month_
 
 - One of a small core team that took Ethio-Djibouti Railway's freight and passenger operations from manual processes to a live digital platform in about 5 months. It spans 11 services, 1,500+ API endpoints and 7 payment gateways
 - Core engineer on the freight subsystem (NestJS, TypeORM, PostgreSQL, RabbitMQ, React), covering the whole cargo lifecycle from customer booking and pricing through invoicing, payment, dispatch and delivery
